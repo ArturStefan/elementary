@@ -118,19 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icon-copyright-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-copyright-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon-email-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-email-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon-email-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-email-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-username-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-username-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-username-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-username-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-email-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-email-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-copyright-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-copyright-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-gear-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-gear-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-pass-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-pass-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-pass-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-pass-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon-magnifier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-magnifier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon-pass-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-pass-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-copyright-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-copyright-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-username-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-username-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-email-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-email-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-gear-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-gear-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-magnifier-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-magnifier-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -18,3 +18,5 @@ D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj
 D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
 D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
 D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources

@@ -48,5 +48,17 @@ namespace Elementary
             pictureBox3.BackgroundImage = Properties.Resources.icon_pass_black;
             panel1.BackColor = Color.Black;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 cadastrar = new Form2();
+            cadastrar.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form3 menu = new Form3();
+            menu.Visible = true;
+        }
     }
 }
