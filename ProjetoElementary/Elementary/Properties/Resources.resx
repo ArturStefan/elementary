@@ -148,6 +148,15 @@
   <data name="icon-pass-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-pass-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon-magnifier-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-magnifier-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-CRM-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-CRM-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-CRM-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-CRM-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon-copyright-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-copyright-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,7 +169,10 @@
   <data name="icon-gear-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-gear-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon-magnifier-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-magnifier-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon-birthday-black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-birthday-black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-birthday-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-birthday-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

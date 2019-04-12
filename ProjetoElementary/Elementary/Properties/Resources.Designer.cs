@@ -63,6 +63,26 @@ namespace Elementary.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_birthday_black {
+            get {
+                object obj = ResourceManager.GetObject("icon-birthday-black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_birthday_white {
+            get {
+                object obj = ResourceManager.GetObject("icon-birthday-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_copyright_black {
             get {
                 object obj = ResourceManager.GetObject("icon-copyright-black", resourceCulture);
@@ -76,6 +96,26 @@ namespace Elementary.Properties {
         internal static System.Drawing.Bitmap icon_copyright_green {
             get {
                 object obj = ResourceManager.GetObject("icon-copyright-green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_CRM_black {
+            get {
+                object obj = ResourceManager.GetObject("icon-CRM-black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_CRM_white {
+            get {
+                object obj = ResourceManager.GetObject("icon-CRM-white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
