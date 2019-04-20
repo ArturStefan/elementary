@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Elementary
 {
-    class Medico : Usuario
+    public class Medico : Usuario
     {
         // Atributos
         private string vCRM;
+
+        public Medico()
+        {
+
+        }
 
         // Métodos
         public Medico(string pNome, string pEmail, string pSenha, string pConfirmarSenha, DateTime pDataNascimento, bool pStatusConta, string pCRM)
@@ -32,6 +37,18 @@ namespace Elementary
         {
             return vCRM;
         }
+        public void cadastrarMedico(string pNome, string pEmail, string pSenha, string pConfirmarSenha, string pCRM, DateTime pDataNascimento, bool pStatusConta)
+        {
+            setNome(pNome);
+            setEmail(pEmail);
+            setSenha(pSenha);
+            setConfirmarSenha(pConfirmarSenha);
+            setDataNascimento(pDataNascimento);
+            setStatusConta(pStatusConta);
+            setCRM(pCRM);
+        }
 
     }
+
 }
+

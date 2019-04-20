@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elementary
 {
-    class Usuario
+    public class Usuario
     {
         // Atributos
         private string vNome;
@@ -90,6 +90,15 @@ namespace Elementary
         public bool getStatusConta()
         {
             return vStatusConta;
+        }
+        public void cadastrarUsuario(string pNome,string pEmail,string pSenha,string pConfirmarSenha,DateTime pDataNascimento,bool pStatusConta)
+        {
+            setNome(pNome);
+            setEmail(pEmail);
+            setSenha(pSenha);
+            setConfirmarSenha(pConfirmarSenha);
+            setDataNascimento(pDataNascimento);
+            setStatusConta(pStatusConta);
         }
     }
 }

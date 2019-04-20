@@ -12,14 +12,19 @@ namespace Elementary
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        Medico medico = new Medico();
+        Usuario usuario = new Usuario();
+        BD bd = new BD();
+        public Form2(BD tempBD)
         {
             InitializeComponent();
+            bd = (BD)tempBD;
 
             textBox5.Visible = false;
             panel5.Visible = false;
             pictureBox6.Visible = false;
         }
+
 
         // Efeitos da interface
         private void textBox1_Enter(object sender, EventArgs e)
@@ -168,14 +173,19 @@ namespace Elementary
         {
             if (checkBox1.Checked == true)
             {
-                Medico medico = new Medico(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, Convert.ToDateTime(maskedTextBox1.Text), true, textBox5.Text);
-                BD bd = new BD(medico);
+                medico.cadastrarMedico(textBox1.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,Convert.ToDateTime(maskedTextBox1.Text),true);
+                bd.gravaMedico(medico);
             }
             else
             {
-                Usuario usuario = new Usuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
-                BD bd = new BD(usuario);
+                usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,Convert.ToDateTime(maskedTextBox1.Text), true);
+                bd.gravaUsuario(usuario);
             }
+
+            Form1 cadastrar = new Form1(bd);
+            this.Hide();
+            cadastrar.ShowDialog();
+        }
         }   
-    }
 }
+

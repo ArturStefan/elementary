@@ -13,9 +13,20 @@ namespace Elementary
 {
     public partial class Form1 : Form
     {
+        Medico medico = new Medico();
+        Usuario usuario = new Usuario();
+        BD bd = new BD();
+
         public Form1()
         {
             InitializeComponent();
+        }
+        //Metodo construtor que recebe o bd com o novo usuario cadastrado
+        public Form1(BD tempBD)
+        {
+            InitializeComponent();
+            //Iguala os bds
+            bd = (BD)tempBD;
         }
 
         // Efeitos da interface
@@ -70,15 +81,19 @@ namespace Elementary
         // Botão cadastrar 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 cadastrar = new Form2();
-            cadastrar.Visible = true;
+            //Chama a tela cadastro e passa o bd atual para a tela de cadastro para não perder os dados
+            Form2 cadastrar = new Form2(bd);
+            this.Hide();
+            cadastrar.ShowDialog();
         }
 
         // Botão entrar
         private void button1_Click(object sender, EventArgs e)
         {
+            //Chama o formulario do menu
             Form3 menu = new Form3();
-            menu.Visible = true;
+            this.Hide();
+            menu.ShowDialog();
         }
     }
 }
