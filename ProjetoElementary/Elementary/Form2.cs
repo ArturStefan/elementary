@@ -15,10 +15,10 @@ namespace Elementary
         Medico medico = new Medico();
         Usuario usuario = new Usuario();
         BD bd = new BD();
-        public Form2(BD tempBD)
+        public Form2(BD tBD)
         {
             InitializeComponent();
-            bd = (BD)tempBD;
+            bd = (BD)tBD;
 
             textBox5.Visible = false;
             panel5.Visible = false;
@@ -173,21 +173,41 @@ namespace Elementary
         {
             if (checkBox1.Checked == true)
             {
-                medico.cadastrarMedico(textBox1.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,Convert.ToDateTime(maskedTextBox1.Text),true);
-                bd.gravaMedico(medico);
-                MessageBox.Show("Cadastro realizado com sucesso");
-            }
-            else
-            {
-                usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,Convert.ToDateTime(maskedTextBox1.Text), true);
-                bd.gravaUsuario(usuario);
-                MessageBox.Show("Cadastro realizado com sucesso");
-            }
+                if (textBox3.Text == textBox4.Text)
+                {
+                    medico.cadastrarMedico(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
+                    bd.gravaMedico(medico);
 
-            Form1 cadastrar = new Form1(bd);
-            this.Hide();
-            cadastrar.ShowDialog();
+                    MessageBox.Show("Cadastro realizado com sucesso");
+
+                    Form1 cadastrar = new Form1(bd);
+                    this.Hide();
+                    cadastrar.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("As senhas não são iguais");
+                }
+            }
+            else if(checkBox1.Checked ==false)
+            {
+                if (textBox3.Text == textBox4.Text)
+                {
+                    usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
+                    bd.gravaUsuario(usuario);
+                    MessageBox.Show("Cadastro realizado com sucesso");
+
+                    Form1 cadastrar = new Form1(bd);
+                    this.Hide();
+                    cadastrar.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("As senhas não são iguais");
+                }
+            }
+           
         }
-        }   
+    }   
 }
 

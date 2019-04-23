@@ -12,10 +12,32 @@ namespace Elementary
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        Medico medico = new Medico();
+        Usuario usuario = new Usuario();
+        BD bd = new BD();
+
+        public Form3(BD tBd,Medico tMedico)
         {
             InitializeComponent();
 
+            bd = (BD)tBd;
+            medico = (Medico)tMedico;
+
+            textBox1.Text = medico.getNome();
+            // Configurações das opções (engrenagem)
+            ActiveControl = pictureBox1;
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+        }
+        public Form3(BD tBD,Usuario tUsuario)
+        {
+            InitializeComponent();
+
+            bd = (BD)tBD;
+            usuario = (Usuario)tUsuario;
+
+            textBox1.Text = usuario.getNome();
             // Configurações das opções (engrenagem)
             ActiveControl = pictureBox1;
             button4.Visible = false;
@@ -61,7 +83,9 @@ namespace Elementary
         // Botão sair
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Form1 form1 = new Form1(bd);
+            this.Hide();
+            form1.ShowDialog();
         }
 
         // Exibir/Esconder opções (engrenagem)
