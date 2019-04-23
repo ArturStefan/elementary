@@ -20,7 +20,7 @@ namespace Elementary
         public Form1()
         {
             InitializeComponent();
-            //.
+          
         }
         //Metodo construtor que recebe o bd com o novo usuario cadastrado
         public Form1(BD tempBD)
