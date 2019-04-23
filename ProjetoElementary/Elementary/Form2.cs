@@ -175,11 +175,13 @@ namespace Elementary
             {
                 medico.cadastrarMedico(textBox1.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,Convert.ToDateTime(maskedTextBox1.Text),true);
                 bd.gravaMedico(medico);
+                MessageBox.Show("Cadastro realizado com sucesso");
             }
             else
             {
                 usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,Convert.ToDateTime(maskedTextBox1.Text), true);
                 bd.gravaUsuario(usuario);
+                MessageBox.Show("Cadastro realizado com sucesso");
             }
 
             Form1 cadastrar = new Form1(bd);

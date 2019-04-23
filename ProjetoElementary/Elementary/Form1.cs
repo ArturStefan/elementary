@@ -91,10 +91,43 @@ namespace Elementary
         // Botão entrar
         private void button1_Click(object sender, EventArgs e)
         {
-            //Chama o formulario do menu
-            Form3 menu = new Form3();
-            this.Hide();
-            menu.ShowDialog();
+
+            if (bd.pegaUsuario(textBox1.Text) != null)
+            {
+                usuario = (Usuario)bd.pegaUsuario(textBox1.Text);
+
+                if (usuario.getSenha() == textBox2.Text)
+                {
+                    //Chama o formulario do menu
+                    Form3 menu = new Form3();
+                    this.Hide();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Senha incorreta");
+                }
+            }
+            else if (bd.pegaMedico(textBox1.Text) != null)
+            {
+                medico = (Medico)bd.pegaUsuario(textBox1.Text);
+
+                if (medico.getSenha() == textBox2.Text)
+                {
+                    //Chama o formulario do menu
+                    Form3 menu = new Form3();
+                    this.Hide();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Senha incorreta");
+                }
+            }
+            else if (bd.pegaUsuario(textBox1.Text) == null)
+            {
+                MessageBox.Show("Usuario não cadastrado");
+            }                  
         }
     }
 }

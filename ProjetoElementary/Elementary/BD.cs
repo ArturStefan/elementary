@@ -37,6 +37,22 @@ namespace Elementary
         {
             listaDeUsuarios.Add(pUsuario.getEmail(),pUsuario);
         }
-    }
-    
+
+        public object pegaUsuario(string pUsuario)
+        {
+            if (listaDeUsuarios.ContainsKey(pUsuario))
+            {
+                return listaDeUsuarios[pUsuario];
+            }
+            return null;
+        }
+        public object pegaMedico(string pUsuario)
+        {
+            if (listaDeMedicos.ContainsKey(pUsuario))
+            {
+                return listaDeMedicos[pUsuario];
+            }
+            return null;
+        }
+    }    
 }
