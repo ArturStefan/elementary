@@ -29,15 +29,17 @@ namespace Elementary
             Dictionary<object, string> listaDeUsuarios = new Dictionary<object, string>();
             listaDeUsuarios.Add(pUsuario, pUsuario.getEmail());
         }
+        //Grava um medico
         public void gravaMedico(Medico pMedico)
         {            
             listaDeMedicos.Add(pMedico.getEmail(),pMedico);
         }
+        //Grava um usuario
         public void gravaUsuario(Usuario pUsuario)
         {
             listaDeUsuarios.Add(pUsuario.getEmail(),pUsuario);
         }
-
+        //Retorna um usuario
         public object pegaUsuario(string pUsuario)
         {
             if (listaDeUsuarios.ContainsKey(pUsuario))
@@ -46,6 +48,7 @@ namespace Elementary
             }
             return null;
         }
+        //Retorna o um medico
         public object pegaMedico(string pUsuario)
         {
             if (listaDeMedicos.ContainsKey(pUsuario))
