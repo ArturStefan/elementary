@@ -23,11 +23,11 @@ namespace Elementary
           
         }
         //Metodo construtor que recebe o bd com o novo usuario cadastrado
-        public Form1(BD tempBD)
+        public Form1(BD tBD)
         {
             InitializeComponent();
             //Iguala os bds
-            bd = (BD)tempBD;
+            bd = (BD)tBD;
         }
 
         // Efeitos da interface
@@ -99,7 +99,7 @@ namespace Elementary
                 if (usuario.getSenha() == textBox2.Text)
                 {
                     //Chama o formulario do menu
-                    Form3 menu = new Form3();
+                    Form3 menu = new Form3(bd,usuario);
                     this.Hide();
                     menu.ShowDialog();
                 }
@@ -112,10 +112,11 @@ namespace Elementary
             {
                 medico = (Medico)bd.pegaUsuario(textBox1.Text);
 
-                if (medico.getSenha() == textBox2.Text)
+                //erro!!! a senha está vindo null
+                if (medico.getSenha() !=null && medico.getSenha()== textBox2.Text)
                 {
                     //Chama o formulario do menu
-                    Form3 menu = new Form3();
+                    Form3 menu = new Form3(bd,medico);
                     this.Hide();
                     menu.ShowDialog();
                 }
