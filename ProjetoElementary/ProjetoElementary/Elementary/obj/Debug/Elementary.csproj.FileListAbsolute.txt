@@ -1,0 +1,72 @@
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+D:\ProjetosVisualStudio\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+C:\Users\arthu\Source\Repos\elementary2\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\desktop\elementary-testes\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
