@@ -12,6 +12,7 @@ namespace Elementary
 {
     public partial class Form2 : Form
     {
+        // Instância de classe
         Medico medico = new Medico();
         Usuario usuario = new Usuario();
         BD bd = new BD();
@@ -201,32 +202,34 @@ namespace Elementary
             {
                 if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && textBox5.Text != "CRM" && maskedTextBox1.Text != "  /  /")
                 {
-                    if(textBox3.Text == textBox4.Text)
+                    if (bd.getMedico(textBox2.Text) == null)
                     {
-                        if (textBox2.Text.IndexOf("@") == -1 || textBox2.Text.IndexOf(".com") == -1)
+                        if (textBox3.Text == textBox4.Text)
                         {
-                            MessageBox.Show("Email inválido");
+                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                            {
+                                medico.cadastrarMedico(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
+                                bd.setMedico(medico);
+
+                                MessageBox.Show("Cadastro realizado com sucesso");
+
+                                this.Dispose();
+                                Form1 login = new Form1(bd);
+                                login.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email inválido");
+                            }
                         }
                         else
                         {
-                            medico.cadastrarMedico(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
-                            bd.setMedico(medico);
-
-                            MessageBox.Show("Cadastro realizado com sucesso");
-
-                            textBox1.Text = "Nome completo";
-                            textBox2.Text = "Email";
-                            textBox3.PasswordChar = '\u0000';
-                            textBox3.Text = "Senha";
-                            textBox4.PasswordChar = '\u0000';
-                            textBox4.Text = "Confirmar senha";
-                            maskedTextBox1.ResetText();
-                            checkBox1.Checked = false;
+                            MessageBox.Show("As senhas não são iguais");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("As senhas não são iguais");
+                        MessageBox.Show("Este usuário já está cadastrado");
                     }
                 }
                 else
@@ -238,33 +241,35 @@ namespace Elementary
             {
                 if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && maskedTextBox1.Text != "  /  /")
                 {
-                    if(textBox3.Text == textBox4.Text)
+                    if (bd.getUsuario(textBox2.Text) == null)
                     {
-                        if (textBox2.Text.IndexOf("@") == -1 || textBox2.Text.IndexOf(".com") == -1)
+                        if (textBox3.Text == textBox4.Text)
                         {
-                            MessageBox.Show("Email inválido");
+                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                            {
+                                usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
+                                bd.setUsuario(usuario);
+
+                                MessageBox.Show("Cadastro realizado com sucesso");
+
+                                this.Dispose();
+                                Form1 login = new Form1(bd);
+                                login.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email inválido");
+                            }
                         }
                         else
                         {
-                            usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
-                            bd.setUsuario(usuario);
-
-                            MessageBox.Show("Cadastro realizado com sucesso");
-
-                            textBox1.Text = "Nome completo";
-                            textBox2.Text = "Email";
-                            textBox3.PasswordChar = '\u0000';
-                            textBox3.Text = "Senha";
-                            textBox4.PasswordChar = '\u0000';
-                            textBox4.Text = "Confirmar senha";
-                            maskedTextBox1.ResetText();
+                            MessageBox.Show("As senhas não são iguais");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("As senhas não são iguais");
+                        MessageBox.Show("Este usuário já está cadastrado");
                     }
-                    
                 }
                 else
                 {
@@ -275,11 +280,8 @@ namespace Elementary
 
         private void label1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Artur Stefan\n\n" +
-                "Cainan\n\n" +
-                "Gabriel Silva Fonseca <fonsecacrz7@gmail.com>\n\n" +
-                "Iuri\n\n" +
-                "Jefferson de lima", "DESENVOLVIDO POR:");
+            Sobre sobre = new Sobre();
+            sobre.desenvolvedores();
         }
     }   
 }

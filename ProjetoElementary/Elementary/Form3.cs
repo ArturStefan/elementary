@@ -7,42 +7,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Elementary
 {
     public partial class Form3 : Form
     {
+        // Intância de classe
         Medico medico = new Medico();
         Usuario usuario = new Usuario();
         BD bd = new BD();
+        Post post = new Post();
 
-        public Form3(BD tBd,Medico tMedico)
+        public Form3(BD pBd, Medico pMedico)
         {
             InitializeComponent();
 
-            bd = (BD)tBd;
-            medico = (Medico)tMedico;
+            ActiveControl = pictureBox1;
+
+            bd = (BD)pBd;
+            medico = (Medico)pMedico;
 
             textBox1.Text = medico.getNome();
+
             // Configurações das opções (engrenagem)
             ActiveControl = pictureBox1;
             button4.Visible = false;
             button5.Visible = false;
             button6.Visible = false;
+            button8.Visible = false;
         }
-        public Form3(BD tBD,Usuario tUsuario)
+
+        public Form3(BD pBD, Usuario pUsuario)
         {
             InitializeComponent();
 
-            bd = (BD)tBD;
-            usuario = (Usuario)tUsuario;
+            ActiveControl = pictureBox1;
 
-            textBox1.Text = usuario.getNome();
+            bd = (BD)pBD;
+            usuario = (Usuario)pUsuario;
+
+            textBox1.Text = "Anônimo";
+
             // Configurações das opções (engrenagem)
             ActiveControl = pictureBox1;
             button4.Visible = false;
             button5.Visible = false;
             button6.Visible = false;
+            button8.Visible = false;
+
+            novoPost();
         }
 
         // Botão ON
@@ -50,6 +64,8 @@ namespace Elementary
         {
             button1.BackColor = Color.Gray;
             button2.BackColor = Color.Silver;
+
+            textBox1.Text = "Anônimo";
         }
 
         // Botão OFF
@@ -57,6 +73,13 @@ namespace Elementary
         {
             button2.BackColor = Color.Gray;
             button1.BackColor = Color.Silver;
+
+            DialogResult ativarDesativarAnonimato = MessageBox.Show("Tem certeza que deseja desativar o anonimato?", "AVISO", MessageBoxButtons.YesNo);
+
+            if(ativarDesativarAnonimato == DialogResult.Yes)
+            {
+                textBox1.Text = usuario.getNome();
+            }
         }
 
         // Efeito pesquisar
@@ -91,27 +114,76 @@ namespace Elementary
         // Exibir/Esconder opções (engrenagem)
         private void button3_Click(object sender, EventArgs e)
         {
+            button3.Visible = false;
             button4.Visible = true;
             button5.Visible = true;
             button6.Visible = true;
-            button3.Visible = false;
+            button8.Visible = true;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            button3.Visible = true;
             button4.Visible = false;
             button5.Visible = false;
-            button3.Visible = true;
             button6.Visible = false;
+            button8.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Artur Stefan\n\n" +
-                "Cainan\n\n" +
-                "Gabriel Silva Fonseca <fonsecacrz7@gmail.com>\n\n" +
-                "Iuri\n\n" +
-                "Jefferson de lima", "DESENVOLVIDO POR:");
+            Sobre sobre = new Sobre();
+            sobre.desenvolvedores();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Form4 novoPost = new Form4(bd, usuario);
+            novoPost.ShowDialog();
+        }
+
+        private void novoPost()
+        {
+            ArrayList listaDePosts = new ArrayList();
+
+            int x = (panel6.Width / 2) - 50; // Menos a metade do tamanho do controle (textbox)
+            int y = 0;
+            int y2 = 0;
+
+            for (int i = usuario.numeroPost() - 1; i >= 0; i--)
+            {
+                TextBox tituloDoPost = new TextBox();
+                TextBox textoDopost = new TextBox();
+                
+                listaDePosts = usuario.getPost();
+                post = (Post)listaDePosts[i];
+
+                tituloDoPost.Text = post.getTitulo();
+                textoDopost.Text = post.getTexto();
+
+                tituloDoPost.Location = new Point(x, y += 100);
+                y2 = tituloDoPost.Location.Y;
+                textoDopost.Location = new Point(x, y2 += 30);
+
+                panel6.Controls.Add(tituloDoPost);
+                panel6.Controls.Add(textoDopost);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult desativarConta = MessageBox.Show("Deseja realmente desativar sua conta?", "AVISO", MessageBoxButtons.YesNo);
+
+            if(desativarConta == DialogResult.Yes)
+            {
+                usuario.setStatusConta(false);
+                medico.setStatusConta(false);
+
+                this.Dispose();
+                Form1 login = new Form1(bd);
+                login.ShowDialog();
+            }
         }
     }
 }

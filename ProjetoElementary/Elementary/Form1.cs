@@ -101,52 +101,87 @@ namespace Elementary
         // Botão entrar
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (bd.getUsuario(textBox1.Text) != null)
+            if (textBox1.Text != "Email" && textBox2.Text != "Senha")
             {
-                usuario = (Usuario)bd.getUsuario(textBox1.Text);
+                if (bd.getUsuario(textBox1.Text) != null)
+                {
+                    usuario = (Usuario)bd.getUsuario(textBox1.Text);
 
-                if (usuario.getSenha() == textBox2.Text && usuario.getEmail() == textBox1.Text)
-                {
-                    //Chama o formulário do menu
-                    Form3 menu = new Form3(bd, usuario);
-                    this.Hide();
-                    menu.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou senha inválido");
-                }
-            }
-            else if (bd.getMedico(textBox1.Text) != null)
-            {
-                medico = (Medico)bd.getMedico(textBox1.Text);
+                    if (usuario.getStatusConta() == true)
+                    {
+                        if (usuario.getSenha() == textBox2.Text && usuario.getEmail() == textBox1.Text)
+                        {
+                            //Chama o formulário do menu
+                            Form3 menu = new Form3(bd, usuario);
+                            this.Hide();
+                            menu.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário ou senha inválido");
+                        }
+                    }
+                    else
+                    {
+                        DialogResult ativarConta = MessageBox.Show("Sua conta foi desativada desejá ativa-lá novamente?", "AVISO", MessageBoxButtons.YesNo);
 
-                if (medico.getSenha() == textBox2.Text && medico.getEmail() == textBox1.Text)
-                {
-                    //Chama o formulário do menu
-                    Form3 menu = new Form3(bd,medico);
-                    this.Hide();
-                    menu.ShowDialog();
+                        if(ativarConta == DialogResult.Yes)
+                        {
+                            usuario.setStatusConta(true);
+
+                            Form3 menu = new Form3(bd, usuario);
+                            this.Hide();
+                            menu.ShowDialog();
+                        }
+                    }
                 }
-                else
+                else if (bd.getMedico(textBox1.Text) != null)
                 {
-                    MessageBox.Show("Usuário ou senha inválido");
+                    medico = (Medico)bd.getMedico(textBox1.Text);
+
+                    if (medico.getStatusConta() == true)
+                    {
+                        if (medico.getSenha() == textBox2.Text && medico.getEmail() == textBox1.Text)
+                        {
+                            //Chama o formulário do menu
+                            Form3 menu = new Form3(bd, medico);
+                            this.Hide();
+                            menu.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário ou senha inválido");
+                        }
+                    }
+                    else
+                    {
+                        DialogResult ativarConta = MessageBox.Show("Sua conta foi desativada desejá ativa-lá novamente?", "AVISO", MessageBoxButtons.YesNo);
+
+                        if (ativarConta == DialogResult.Yes)
+                        {
+                            medico.setStatusConta(true);
+
+                            Form3 menu = new Form3(bd, medico);
+                            this.Hide();
+                            menu.ShowDialog();
+                        }
+                    }
                 }
+                //else
+                //{
+                //    MessageBox.Show("Usuário ou senha inválido");
+                //}
             }
             else
             {
-                MessageBox.Show("Usuário ou senha inválido");
-            }                  
+                MessageBox.Show("Preencha todos os campos para prosseguir");
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Artur Stefan\n\n" +
-                "Cainan\n\n" +
-                "Gabriel Silva Fonseca <fonsecacrz7@gmail.com>\n\n" +
-                "Iuri\n\n" +
-                "Jefferson de lima", "DESENVOLVIDO POR:");
+            Sobre sobre = new Sobre();
+            sobre.desenvolvedores();
         }
     }
 }

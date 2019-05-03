@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace Elementary
         private string vConfirmarSenha;
         private DateTime vDataNascimento;
         private bool vStatusConta;
+        private ArrayList Posts = new ArrayList();
+        private ArrayList Amigos = new ArrayList();
 
         // Métodos
         public Usuario()
@@ -91,7 +94,8 @@ namespace Elementary
         {
             return vStatusConta;
         }
-        public void cadastrarUsuario(string pNome,string pEmail,string pSenha,string pConfirmarSenha,DateTime pDataNascimento,bool pStatusConta)
+
+        public void cadastrarUsuario(string pNome, string pEmail, string pSenha, string pConfirmarSenha, DateTime pDataNascimento, bool pStatusConta)
         {
             setNome(pNome);
             setEmail(pEmail);
@@ -99,6 +103,36 @@ namespace Elementary
             setConfirmarSenha(pConfirmarSenha);
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
+        }
+
+        public void addPost(object pPost)
+        {
+            Posts.Add((Post)pPost);
+        }
+
+        public int numeroPost()
+        {
+            if (Posts.Count != 0)
+            {
+                return Posts.Count;
+            }
+
+            return -1;
+        }
+
+        public ArrayList getPost()
+        {
+            return Posts;
+        }
+
+        public void addAmigo(string pEmailAmigo)
+        {
+            Amigos.Add(pEmailAmigo);
+        }
+
+        public void removeAmigo(string pEmailAmigo)
+        {
+            Amigos.Remove(pEmailAmigo);
         }
     }
 }
