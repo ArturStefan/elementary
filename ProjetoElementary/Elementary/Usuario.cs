@@ -13,7 +13,6 @@ namespace Elementary
         private string vNome;
         private string vEmail;
         private string vSenha;
-        private string vConfirmarSenha;
         private DateTime vDataNascimento;
         private bool vStatusConta;
         private ArrayList Posts = new ArrayList();
@@ -25,12 +24,11 @@ namespace Elementary
 
         }
         
-        public Usuario(string pNome, string pEmail, string pSenha, string pConfirmarSenha, DateTime pDataNascimento, bool pStatusConta)
+        public Usuario(string pNome, string pEmail, string pSenha, DateTime pDataNascimento, bool pStatusConta)
         {
             vNome = pNome;
             vEmail = pEmail;
             vSenha = pSenha;
-            vConfirmarSenha = pConfirmarSenha;
             vDataNascimento = pDataNascimento;
             vStatusConta = pStatusConta;
         }
@@ -48,11 +46,6 @@ namespace Elementary
         public void setSenha(string pSenha)
         {
             vSenha = pSenha;
-        }
-
-        public void setConfirmarSenha(string pConfirmarSenha)
-        {
-            vConfirmarSenha = pConfirmarSenha;
         }
 
         public void setDataNascimento(DateTime pDataNascimento)
@@ -80,11 +73,6 @@ namespace Elementary
             return vSenha;
         }
 
-        public string getConfirmarSenha()
-        {
-            return vConfirmarSenha;
-        }
-
         public DateTime getDataNascimento()
         {
             return vDataNascimento;
@@ -95,12 +83,11 @@ namespace Elementary
             return vStatusConta;
         }
 
-        public void cadastrarUsuario(string pNome, string pEmail, string pSenha, string pConfirmarSenha, DateTime pDataNascimento, bool pStatusConta)
+        public void cadastrarUsuario(string pNome, string pEmail, string pSenha, DateTime pDataNascimento, bool pStatusConta)
         {
             setNome(pNome);
             setEmail(pEmail);
             setSenha(pSenha);
-            setConfirmarSenha(pConfirmarSenha);
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
         }

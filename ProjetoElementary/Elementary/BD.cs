@@ -10,25 +10,25 @@ namespace Elementary
     {
         // Instanciamento dos dicionários
         Dictionary<string, object> listaDeUsuarios = new Dictionary<string, object>();
-        Dictionary<string, object> listaDeMedicos = new Dictionary<string,object>();
+        Dictionary<string, object> listaDeMedicos = new Dictionary<string, object>();
                 
         public BD()
         {
             
         }
 
-        // "Banco de dados" medico
+        // "Banco de dados" dos médicos
         public BD(Medico pMedico)
         {
-            Dictionary<object, string> listaDeMedicos = new Dictionary<object, string>();
-            listaDeMedicos.Add(pMedico, pMedico.getEmail());
+            Dictionary<string, object> listaDeMedicos = new Dictionary<string, object>();
+            listaDeMedicos.Add(pMedico.getEmail(), pMedico);
         }
         
-        // "Banco de dados" usuario
+        // "Banco de dados" dos usuários
         public BD(Usuario pUsuario)
         {
-            Dictionary<object, string> listaDeUsuarios = new Dictionary<object, string>();
-            listaDeUsuarios.Add(pUsuario, pUsuario.getEmail());
+            Dictionary<string, object> listaDeUsuarios = new Dictionary<string, object>();
+            listaDeUsuarios.Add(pUsuario.getEmail(), pUsuario);
         }
 
         public void setMedico(Medico pMedico)

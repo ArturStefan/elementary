@@ -19,6 +19,7 @@ namespace Elementary
         BD bd = new BD();
         Post post = new Post();
 
+        // Construtor para não perder os dados do médico
         public Form3(BD pBd, Medico pMedico)
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace Elementary
             button8.Visible = false;
         }
 
+        // Construtor para não perder os dados do usuário
         public Form3(BD pBD, Usuario pUsuario)
         {
             InitializeComponent();
@@ -74,6 +76,7 @@ namespace Elementary
             button2.BackColor = Color.Gray;
             button1.BackColor = Color.Silver;
 
+            // Diálogo de confirmação para desativar o anonimato
             DialogResult ativarDesativarAnonimato = MessageBox.Show("Tem certeza que deseja desativar o anonimato?", "AVISO", MessageBoxButtons.YesNo);
 
             if(ativarDesativarAnonimato == DialogResult.Yes)
@@ -82,7 +85,7 @@ namespace Elementary
             }
         }
 
-        // Efeito pesquisar
+        // Efeito do campo de pesquisa
         private void textBox6_Enter(object sender, EventArgs e)
         {
             textBox6.Clear();
@@ -103,15 +106,7 @@ namespace Elementary
             }
         }
 
-        // Botão sair
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1(bd);
-            this.Hide();
-            form1.ShowDialog();
-        }
-
-        // Exibir/Esconder opções (engrenagem)
+        // Exibir/esconder opções (engrenagem)
         private void button3_Click(object sender, EventArgs e)
         {
             button3.Visible = false;
@@ -130,12 +125,7 @@ namespace Elementary
             button8.Visible = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Sobre sobre = new Sobre();
-            sobre.desenvolvedores();
-        }
-
+        // Botão para realizar um novo post
         private void button7_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -143,6 +133,7 @@ namespace Elementary
             novoPost.ShowDialog();
         }
 
+        // Método para exibir os posts feitos
         private void novoPost()
         {
             ArrayList listaDePosts = new ArrayList();
@@ -171,8 +162,10 @@ namespace Elementary
             }
         }
 
+        // Botão para excluir a conta
         private void button4_Click(object sender, EventArgs e)
         {
+            // Diálogo de confirmação para desativar a conta
             DialogResult desativarConta = MessageBox.Show("Deseja realmente desativar sua conta?", "AVISO", MessageBoxButtons.YesNo);
 
             if(desativarConta == DialogResult.Yes)
@@ -184,6 +177,21 @@ namespace Elementary
                 Form1 login = new Form1(bd);
                 login.ShowDialog();
             }
+        }
+
+        // Botão sair
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1(bd);
+            this.Hide();
+            form1.ShowDialog();
+        }
+
+        // Exibe informações de desenvolvimento
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Sobre sobre = new Sobre();
+            sobre.desenvolvedores();
         }
     }
 }

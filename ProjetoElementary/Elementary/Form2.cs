@@ -16,6 +16,10 @@ namespace Elementary
         Medico medico = new Medico();
         Usuario usuario = new Usuario();
         BD bd = new BD();
+        Criptografia MD5 = new Criptografia();
+
+        // Atributos
+        string vSenhaMD5;
 
         public Form2(BD pBD)
         {
@@ -30,15 +34,116 @@ namespace Elementary
             pictureBox6.Visible = false;
         }
 
+        // Botão cadastrar
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Verifica se no cadastro o checkbox foi marcado
+            // caso o checkbox ter sido marcado o cadastro será de um médico
+            // caso o checkbox NÃO ter sido marcado o cadastro será de um usuário normal
+            if (checkBox1.Checked == true)
+            {
+                // Verifica se TODOS os campos foram preenchidos
+                if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && textBox5.Text != "CRM" && maskedTextBox1.Text != "  /  /")
+                {
+                    // Verifica se o médico já está cadastrado
+                    if (bd.getMedico(textBox2.Text) == null)
+                    {
+                        // Verifica se as senhas correspondem
+                        if (textBox3.Text == textBox4.Text)
+                        {
+                            // Faz uma verificação de email simples (é necessário ter pelo menos um '@' e um '.com' no email)
+                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                            {
+                                // Faz a criptografia da senha em MD5
+                                vSenhaMD5 = MD5.criptografar(textBox3.Text);
+
+                                // Faz o cadastro do médico no "BD" de médicos
+                                medico.cadastrarMedico(textBox1.Text, textBox2.Text, vSenhaMD5, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
+                                bd.setMedico(medico);
+
+                                MessageBox.Show("Cadastro realizado com sucesso");
+
+                                this.Dispose();
+                                Form1 login = new Form1(bd);
+                                login.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email inválido");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("As senhas não são iguais");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este usuário já está cadastrado");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha todos os campos");
+                }
+            }
+            else
+            {
+                // Verifica se TODOS os campos foram preenchidos
+                if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && maskedTextBox1.Text != "  /  /")
+                {
+                    // Verifica se o usuário já está cadastrado
+                    if (bd.getUsuario(textBox2.Text) == null)
+                    {
+                        // Verifica se as senhas correspondem
+                        if (textBox3.Text == textBox4.Text)
+                        {
+                            // Faz uma verificação de email simples (é necessário ter pelo menos um '@' e um '.com' no email)
+                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                            {
+                                // Faz a criptografia da senha em MD5
+                                vSenhaMD5 = MD5.criptografar(textBox3.Text);
+
+                                // Faz o cadastro do usuário no "BD" de usuários
+                                usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, vSenhaMD5, Convert.ToDateTime(maskedTextBox1.Text), true);
+                                bd.setUsuario(usuario);
+
+                                MessageBox.Show("Cadastro realizado com sucesso");
+
+                                this.Dispose();
+                                Form1 login = new Form1(bd);
+                                login.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email inválido");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("As senhas não são iguais");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este usuário já está cadastrado");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha todos os campos");
+                }
+            }
+        }
 
         // Efeitos da interface
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if(textBox1.Text == "Nome completo")
+            if (textBox1.Text == "Nome completo")
             {
                 textBox1.Clear();
             }
-            
+
             textBox1.ForeColor = Color.White;
             pictureBox1.BackgroundImage = Properties.Resources.icon_username_white;
             panel4.BackColor = Color.White;
@@ -58,11 +163,11 @@ namespace Elementary
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            if(textBox2.Text == "Email")
+            if (textBox2.Text == "Email")
             {
                 textBox2.Clear();
             }
-            
+
             textBox2.ForeColor = Color.White;
             pictureBox2.BackgroundImage = Properties.Resources.icon_email_white;
             panel3.BackColor = Color.White;
@@ -82,11 +187,11 @@ namespace Elementary
 
         private void textBox3_Enter(object sender, EventArgs e)
         {
-            if(textBox3.Text == "Senha")
+            if (textBox3.Text == "Senha")
             {
                 textBox3.Clear();
             }
-            
+
             textBox3.PasswordChar = '*';
             textBox3.ForeColor = Color.White;
             pictureBox3.BackgroundImage = Properties.Resources.icon_pass_white;
@@ -103,16 +208,16 @@ namespace Elementary
 
             textBox3.ForeColor = Color.Black;
             pictureBox3.BackgroundImage = Properties.Resources.icon_pass_black;
-            panel2.BackColor = Color.Black;   
+            panel2.BackColor = Color.Black;
         }
 
         private void textBox4_Enter(object sender, EventArgs e)
         {
-            if(textBox4.Text == "Confirmar senha")
+            if (textBox4.Text == "Confirmar senha")
             {
                 textBox4.Clear();
             }
-            
+
             textBox4.PasswordChar = '*';
             textBox4.ForeColor = Color.White;
             pictureBox4.BackgroundImage = Properties.Resources.icon_pass_white;
@@ -134,11 +239,11 @@ namespace Elementary
 
         private void textBox5_Enter(object sender, EventArgs e)
         {
-            if(textBox5.Text == "CRM")
+            if (textBox5.Text == "CRM")
             {
                 textBox5.Clear();
             }
-            
+
             textBox5.ForeColor = Color.White;
             panel5.BackColor = Color.White;
             pictureBox6.BackgroundImage = Properties.Resources.icon_CRM_white;
@@ -195,89 +300,7 @@ namespace Elementary
             login.ShowDialog();
         }
 
-        // Botão cadastrar
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && textBox5.Text != "CRM" && maskedTextBox1.Text != "  /  /")
-                {
-                    if (bd.getMedico(textBox2.Text) == null)
-                    {
-                        if (textBox3.Text == textBox4.Text)
-                        {
-                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
-                            {
-                                medico.cadastrarMedico(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
-                                bd.setMedico(medico);
-
-                                MessageBox.Show("Cadastro realizado com sucesso");
-
-                                this.Dispose();
-                                Form1 login = new Form1(bd);
-                                login.ShowDialog();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Email inválido");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("As senhas não são iguais");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Este usuário já está cadastrado");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Preencha todos os campos");
-                }
-            }
-            else
-            {
-                if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && maskedTextBox1.Text != "  /  /")
-                {
-                    if (bd.getUsuario(textBox2.Text) == null)
-                    {
-                        if (textBox3.Text == textBox4.Text)
-                        {
-                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
-                            {
-                                usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
-                                bd.setUsuario(usuario);
-
-                                MessageBox.Show("Cadastro realizado com sucesso");
-
-                                this.Dispose();
-                                Form1 login = new Form1(bd);
-                                login.ShowDialog();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Email inválido");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("As senhas não são iguais");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Este usuário já está cadastrado");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Preencha todos os campos");
-                }
-            }
-        }
-
+        // Exibe informações de desenvolvimento
         private void label1_Click(object sender, EventArgs e)
         {
             Sobre sobre = new Sobre();

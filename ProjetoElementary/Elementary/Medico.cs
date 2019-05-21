@@ -17,12 +17,11 @@ namespace Elementary
 
         }
 
-        public Medico(string pNome, string pEmail, string pSenha, string pConfirmarSenha, DateTime pDataNascimento, bool pStatusConta, string pCRM)
+        public Medico(string pNome, string pEmail, string pSenha, DateTime pDataNascimento, bool pStatusConta, string pCRM)
         {
             setNome(pNome);
             setEmail(pEmail);
             setSenha(pSenha);
-            setConfirmarSenha(pConfirmarSenha);
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
             setCRM(pCRM);
@@ -38,12 +37,11 @@ namespace Elementary
             return vCRM;
         }
 
-        public void cadastrarMedico(string pNome, string pEmail, string pSenha, string pConfirmarSenha, string pCRM, DateTime pDataNascimento, bool pStatusConta)
+        public void cadastrarMedico(string pNome, string pEmail, string pSenha, string pCRM, DateTime pDataNascimento, bool pStatusConta)
         {
             setNome(pNome);
             setEmail(pEmail);
             setSenha(pSenha);
-            setConfirmarSenha(pConfirmarSenha);
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
             setCRM(pCRM);

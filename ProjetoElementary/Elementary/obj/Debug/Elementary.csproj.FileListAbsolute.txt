@@ -96,3 +96,4 @@ C:\Users\aluno\source\repos\ProjetoElementary\Elementary\obj\Debug\Elementary.cs
 C:\Users\aluno\source\repos\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
 C:\Users\aluno\source\repos\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
 C:\Users\aluno\source\repos\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form5.resources

@@ -9,6 +9,7 @@ namespace Elementary
 {
     class Sobre
     {
+        // Exibe o contato dos desenvolvedores
         public void desenvolvedores()
         {
             MessageBox.Show("Artur Stefan Moura de Freitas <arthurstephan13@gmail.com>\n\n" +
