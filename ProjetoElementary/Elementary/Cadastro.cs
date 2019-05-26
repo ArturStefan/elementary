@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Elementary
 {
-    public partial class Form2 : Form
+    public partial class Cadastro : Form
     {
         // Instância de classe
         Medico medico = new Medico();
@@ -21,7 +21,7 @@ namespace Elementary
         // Atributos
         string vSenhaMD5;
 
-        public Form2(BD pBD)
+        public Cadastro(BD pBD)
         {
             InitializeComponent();
 
@@ -64,7 +64,7 @@ namespace Elementary
                                 MessageBox.Show("Cadastro realizado com sucesso");
 
                                 this.Dispose();
-                                Form1 login = new Form1(bd);
+                                Login login = new Login(bd);
                                 login.ShowDialog();
                             }
                             else
@@ -111,7 +111,7 @@ namespace Elementary
                                 MessageBox.Show("Cadastro realizado com sucesso");
 
                                 this.Dispose();
-                                Form1 login = new Form1(bd);
+                                Login login = new Login(bd);
                                 login.ShowDialog();
                             }
                             else
@@ -296,7 +296,7 @@ namespace Elementary
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            Form1 login = new Form1(bd);
+            Login login = new Login(bd);
             login.ShowDialog();
         }
 

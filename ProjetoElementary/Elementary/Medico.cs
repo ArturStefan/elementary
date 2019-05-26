@@ -25,6 +25,7 @@ namespace Elementary
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
             setCRM(pCRM);
+            setIndentificador("medico");
         }
 
         public void setCRM(string pCRM)

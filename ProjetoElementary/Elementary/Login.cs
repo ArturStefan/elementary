@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Elementary
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         // Instância de classe
         Medico medico = new Medico();
@@ -22,14 +22,14 @@ namespace Elementary
         // Atributos
         string vSenhaMD5;
 
-        public Form1()
+        public Login()
         {
             InitializeComponent();
           
         }
 
         // Método construtor que recebe o "BD" com o novo usuário cadastrado
-        public Form1(BD pBD)
+        public Login(BD pBD)
         {
             InitializeComponent();
 
@@ -41,7 +41,7 @@ namespace Elementary
         private void button2_Click(object sender, EventArgs e)
         {
             // Chama a tela de cadastro e passa o "BD" atual para a tela de cadastro para não perder os dados
-            Form2 cadastrar = new Form2(bd);
+            Cadastro cadastrar = new Cadastro(bd);
             this.Hide();
             cadastrar.ShowDialog();
         }
@@ -66,7 +66,7 @@ namespace Elementary
                         if (usuario.getSenha() == vSenhaMD5 && usuario.getEmail() == textBox1.Text)
                         {
                             // Chama o formulário do menu
-                            Form3 menu = new Form3(bd, usuario);
+                            Feed menu = new Feed(bd, usuario);
                             this.Hide();
                             menu.ShowDialog();
                         }
@@ -84,7 +84,7 @@ namespace Elementary
                         {
                             usuario.setStatusConta(true);
 
-                            Form3 menu = new Form3(bd, usuario);
+                            Feed menu = new Feed(bd, usuario);
                             this.Hide();
                             menu.ShowDialog();
                         }
@@ -102,7 +102,7 @@ namespace Elementary
                         if (medico.getSenha() == vSenhaMD5 && medico.getEmail() == textBox1.Text)
                         {
                             // Chama o formulário do menu
-                            Form3 menu = new Form3(bd, medico);
+                            Feed menu = new Feed(bd, medico);
                             this.Hide();
                             menu.ShowDialog();
                         }
@@ -120,7 +120,7 @@ namespace Elementary
                         {
                             medico.setStatusConta(true);
 
-                            Form3 menu = new Form3(bd, medico);
+                            Feed menu = new Feed(bd, medico);
                             this.Hide();
                             menu.ShowDialog();
                         }
@@ -140,7 +140,7 @@ namespace Elementary
         // Restaurar senha de usuário
         private void button3_Click(object sender, EventArgs e)
         {
-            Form5 restaurarSenha = new Form5(bd);
+            RestaurarSenha restaurarSenha = new RestaurarSenha(bd);
             this.Hide();
             restaurarSenha.ShowDialog();
         }

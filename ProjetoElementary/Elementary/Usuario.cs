@@ -17,7 +17,8 @@ namespace Elementary
         private bool vStatusConta;
         private ArrayList Posts = new ArrayList();
         private ArrayList Amigos = new ArrayList();
-
+        private string vIdentificador;
+       
         // Métodos
         public Usuario()
         {
@@ -58,6 +59,11 @@ namespace Elementary
             vStatusConta = pStatusConta;
         }
 
+        public void setIndentificador(string pIdentificador)
+        {
+            vIdentificador = pIdentificador;
+        }
+
         public string getNome()
         {
             return vNome;
@@ -82,6 +88,10 @@ namespace Elementary
         {
             return vStatusConta;
         }
+        public string getIdentificador()
+        {
+            return vIdentificador;
+        }
 
         public void cadastrarUsuario(string pNome, string pEmail, string pSenha, DateTime pDataNascimento, bool pStatusConta)
         {
@@ -90,6 +100,7 @@ namespace Elementary
             setSenha(pSenha);
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
+            setIndentificador("usuario");
         }
 
         public void addPost(object pPost)

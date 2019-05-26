@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Elementary
 {
-    public partial class Form5 : Form
+    public partial class RestaurarSenha : Form
     {
         // Instância de classe
         Medico medico = new Medico();
@@ -22,7 +22,7 @@ namespace Elementary
         string vNovaSenhaMD5;
         DateTime vData;
 
-        public Form5(BD pBD)
+        public RestaurarSenha(BD pBD)
         {
             InitializeComponent();
 
@@ -134,7 +134,7 @@ namespace Elementary
                 MessageBox.Show("Senha alterada com sucesso");
 
                 this.Dispose();
-                Form1 login = new Form1(bd);
+                Login login = new Login(bd);
                 login.ShowDialog();
             }
             else
@@ -239,7 +239,7 @@ namespace Elementary
         private void button4_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            Form1 login = new Form1(bd);
+            Login login = new Login(bd);
             login.ShowDialog();
         }
 

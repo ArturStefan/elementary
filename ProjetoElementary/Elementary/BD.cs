@@ -11,7 +11,9 @@ namespace Elementary
         // Instanciamento dos dicionários
         Dictionary<string, object> listaDeUsuarios = new Dictionary<string, object>();
         Dictionary<string, object> listaDeMedicos = new Dictionary<string, object>();
-                
+        Dictionary<string, object> grupo = new Dictionary<string, object>();
+
+
         public BD()
         {
             
@@ -39,6 +41,10 @@ namespace Elementary
         public void setUsuario(Usuario pUsuario)
         {
             listaDeUsuarios.Add(pUsuario.getEmail(), pUsuario);
+        }
+
+        public void setGrupo(Grupo pGrupo) {
+            grupo.Add(pGrupo.getNome(), pGrupo);
         }
 
         public object getUsuario(string pUsuario)

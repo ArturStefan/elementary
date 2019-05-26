@@ -1,6 +1,6 @@
 ﻿namespace Elementary
 {
-    partial class Form4
+    partial class Posts
     {
         /// <summary>
         /// Required designer variable.

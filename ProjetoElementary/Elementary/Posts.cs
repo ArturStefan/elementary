@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace Elementary
 {
-    public partial class Form4 : Form
+    public partial class Posts : Form
     {
         // Instância de classe
         Post post = new Post();
         Usuario usuario = new Usuario();
         BD bd = new BD();
 
-        public Form4()
+        public Posts()
         {
             InitializeComponent();
         }
 
-        public Form4(BD pBd, Usuario pUsuario)
+        public Posts(BD pBd, Usuario pUsuario)
         {
             InitializeComponent();
 
@@ -37,7 +37,7 @@ namespace Elementary
             usuario.addPost(post);
 
             this.Dispose();
-            Form3 menu = new Form3(bd, usuario);
+            Feed menu = new Feed(bd, usuario);
             menu.ShowDialog();
         }
     }

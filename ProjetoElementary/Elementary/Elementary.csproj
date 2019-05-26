@@ -47,36 +47,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="CriarGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriarGrupo.Designer.cs">
+      <DependentUpon>CriarGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Criptografia.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Grupo.cs" />
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Cadastro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Cadastro.Designer.cs">
+      <DependentUpon>Cadastro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Feed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Feed.Designer.cs">
+      <DependentUpon>Feed.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="Posts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="Posts.Designer.cs">
+      <DependentUpon>Posts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="RestaurarSenha.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="RestaurarSenha.Designer.cs">
+      <DependentUpon>RestaurarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedAmigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedAmigos.Designer.cs">
+      <DependentUpon>FeedAmigos.cs</DependentUpon>
     </Compile>
     <Compile Include="Medico.cs" />
     <Compile Include="Post.cs" />
@@ -84,20 +97,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sobre.cs" />
     <Compile Include="Usuario.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CriarGrupo.resx">
+      <DependentUpon>CriarGrupo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Cadastro.resx">
+      <DependentUpon>Cadastro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="Feed.resx">
+      <DependentUpon>Feed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="Posts.resx">
+      <DependentUpon>Posts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurarSenha.resx">
+      <DependentUpon>RestaurarSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedAmigos.resx">
+      <DependentUpon>FeedAmigos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
