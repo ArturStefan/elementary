@@ -20,6 +20,7 @@ namespace Elementary
         public CriarGrupo(BD pBD, Medico pMedico)
         {
             InitializeComponent();
+            ActiveControl = button1;
 
             // Igualar "BDs" para não perder os dados
             bd = pBD;
@@ -28,11 +29,43 @@ namespace Elementary
 
         private void button1_Click(object sender, EventArgs e)
         {
-            grupo.setNome(textBox1.Text);
-            MessageBox.Show("Grupo criado com Sucesso");
+            if (textBox1.Text == "Nome do grupo")
+            {
+                MessageBox.Show("Preencha todos os campos para prosseguir");
+            }
+            else
+            {
+                grupo.setNome(textBox1.Text);
+                MessageBox.Show("Grupo criado com Sucesso");
+                Feed feed = new Feed(bd, medico, grupo);
+                this.Dispose();
+                feed.ShowDialog();
+            }
+        }
+
+        // Botão sair 'X'
+        private void button4_Click(object sender, EventArgs e)
+        {
             Feed feed = new Feed(bd, medico, grupo);
             this.Dispose();
             feed.ShowDialog();
+        }
+
+        // Efeitos da interface
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "Nome do grupo")
+            {
+                textBox1.Clear();
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "")
+            {
+                textBox1.Text = "Nome do grupo";
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Elementary
         private ArrayList vParticipantes = new ArrayList();
         private ArrayList vMensagens = new ArrayList();
 
+        // Métodos
         public string getNome()
         {
             return vNome;

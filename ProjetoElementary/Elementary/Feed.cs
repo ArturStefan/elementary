@@ -17,15 +17,9 @@ namespace Elementary
         Medico medico = new Medico();
         Usuario usuario = new Usuario();
         Grupo grupo = new Grupo();
-
-        //Amigos
         Medico amigoMedico = new Medico();
         Usuario amigoUsuario = new Usuario();
-
-        //Lista de usuarios
         BD bd = new BD();
-
-        //Lista de posts
         Post post = new Post();
 
         // Construtor para não perder os dados do médico
@@ -57,9 +51,19 @@ namespace Elementary
             medico = pMedico;
             grupo = pGrupo;
 
-            // Deixar grupo visível 
+            // Design + deixar o grupo visível
+            int x = (panel7.Width / 2) - 115; // Menos a metade do tamanho do controle (textbox)
+            int y = 0;
+
             TextBox addNovoGrupo = new TextBox();
             addNovoGrupo.Text = grupo.getNome();
+            addNovoGrupo.Font = new Font("Baloo Bhaijaan", 12);
+            addNovoGrupo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            addNovoGrupo.TextAlign = HorizontalAlignment.Left;
+            addNovoGrupo.Width = 230;
+            addNovoGrupo.ReadOnly = true;
+            addNovoGrupo.BackColor = Color.YellowGreen;
+            addNovoGrupo.Location = new Point(x, y += 10);
             panel7.Controls.Add(addNovoGrupo);
 
             // Configurações das opções (engrenagem)
@@ -108,7 +112,7 @@ namespace Elementary
             button2.BackColor = Color.Gray;
             button1.BackColor = Color.Silver;
 
-            // Diálogo de confirmação para desativar o anonimato
+            // Desativar anonimato ?
             DialogResult ativarDesativarAnonimato = MessageBox.Show("Tem certeza que deseja desativar o anonimato?", "AVISO", MessageBoxButtons.YesNo);
 
             if (ativarDesativarAnonimato == DialogResult.Yes)
@@ -170,34 +174,60 @@ namespace Elementary
         {
             ArrayList listaDePosts = new ArrayList();
 
-            int x = (panel6.Width / 2) - 50; // Menos a metade do tamanho do controle (textbox)
+            int x = (panel6.Width / 2) - 240; // Menos a metade do tamanho do controle (textbox)
+            int x2 = (panel6.Width / 2) - 240; // Menos a metade do tamanho do controle (richtextbox)
             int y = 0;
             int y2 = 0;
 
             for (int i = usuario.numeroPost() - 1; i >= 0; i--)
             {
                 TextBox tituloDoPost = new TextBox();
-                TextBox textoDopost = new TextBox();
+                RichTextBox textoDoPost = new RichTextBox();
 
                 listaDePosts = usuario.getPost();
                 post = (Post)listaDePosts[i];
 
-                tituloDoPost.Text = post.getTitulo();
-                textoDopost.Text = post.getTexto();
+                // Design dos posts
+                tituloDoPost.Font = new Font("Baloo Bhaijaan", 18);
+                tituloDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                tituloDoPost.TextAlign = HorizontalAlignment.Center;
+                tituloDoPost.Width = 480;
+                tituloDoPost.ReadOnly = true;
 
-                tituloDoPost.Location = new Point(x, y += 100);
+                textoDoPost.Font = new Font("Baloo Bhaijaan", 12);
+                textoDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                textoDoPost.SelectionAlignment = HorizontalAlignment.Center;
+                textoDoPost.Width = 480;
+                textoDoPost.Height = (int)(3 * textoDoPost.Font.Height) + textoDoPost.GetLineFromCharIndex(textoDoPost.Text.Length + 1) * textoDoPost.Font.Height + 1 + textoDoPost.Margin.Vertical;
+                textoDoPost.SelectionStart = 0;
+                textoDoPost.SelectionStart = textoDoPost.Text.Length;
+                textoDoPost.ReadOnly = true;
+
+                tituloDoPost.Text = post.getTitulo();
+                textoDoPost.Text = post.getTexto();
+                
+                if(y == 0)
+                {
+                    tituloDoPost.Location = new Point(x, y += 100);
+                }
+                else
+                {
+                    tituloDoPost.Location = new Point(x, y += 150);
+                }
+                
                 y2 = tituloDoPost.Location.Y;
-                textoDopost.Location = new Point(x, y2 += 30);
+                textoDoPost.Location = new Point(x2, y2 += 50);
+                y = textoDoPost.Location.Y;
 
                 panel6.Controls.Add(tituloDoPost);
-                panel6.Controls.Add(textoDopost);
+                panel6.Controls.Add(textoDoPost);
             }
         }
 
         // Botão para excluir a conta
         private void button4_Click(object sender, EventArgs e)
         {
-            // Diálogo de confirmação para desativar a conta
+            // Desativar conta ?
             DialogResult desativarConta = MessageBox.Show("Deseja realmente desativar sua conta?", "AVISO", MessageBoxButtons.YesNo);
 
             if (desativarConta == DialogResult.Yes)
@@ -251,6 +281,7 @@ namespace Elementary
             }
         }
 
+        // Botão "Novo Grupo"
         private void button9_Click(object sender, EventArgs e)
         {
             CriarGrupo novoGrupo = new CriarGrupo(bd, medico);

@@ -8,7 +8,7 @@ namespace Elementary
 {
     public class BD
     {
-        // Instanciamento dos dicionários
+        // Instância de classe
         Dictionary<string, object> listaDeUsuarios = new Dictionary<string, object>();
         Dictionary<string, object> listaDeMedicos = new Dictionary<string, object>();
         Dictionary<string, object> grupo = new Dictionary<string, object>();

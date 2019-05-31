@@ -37,27 +37,25 @@ namespace Elementary
         // Botão cadastrar
         private void button1_Click(object sender, EventArgs e)
         {
-            // Verifica se no cadastro o checkbox foi marcado
-            // caso o checkbox ter sido marcado o cadastro será de um médico
-            // caso o checkbox NÃO ter sido marcado o cadastro será de um usuário normal
+            // Checkbox marcado ?
             if (checkBox1.Checked == true)
             {
-                // Verifica se TODOS os campos foram preenchidos
+                // TODOS os campos preenchidos ? 
                 if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && textBox5.Text != "CRM" && maskedTextBox1.Text != "  /  /")
                 {
-                    // Verifica se o médico já está cadastrado
+                    // Médico já está cadastrado ?
                     if (bd.getMedico(textBox2.Text) == null)
                     {
-                        // Verifica se as senhas correspondem
+                        // Senhas correspondem ?
                         if (textBox3.Text == textBox4.Text)
                         {
-                            // Faz uma verificação de email simples (é necessário ter pelo menos um '@' e um '.com' no email)
+                            // Email correto ?
                             if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
                             {
-                                // Faz a criptografia da senha em MD5
+                                // Criptografia da senha
                                 vSenhaMD5 = MD5.criptografar(textBox3.Text);
 
-                                // Faz o cadastro do médico no "BD" de médicos
+                                // Cadastro do médico no "BD" de médicos
                                 medico.cadastrarMedico(textBox1.Text, textBox2.Text, vSenhaMD5, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
                                 bd.setMedico(medico);
 
@@ -89,22 +87,22 @@ namespace Elementary
             }
             else
             {
-                // Verifica se TODOS os campos foram preenchidos
+                // TODOS os campos preenchidos ?
                 if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && maskedTextBox1.Text != "  /  /")
                 {
-                    // Verifica se o usuário já está cadastrado
+                    // Usuário cadastrado ?
                     if (bd.getUsuario(textBox2.Text) == null)
                     {
-                        // Verifica se as senhas correspondem
+                        // Senhas correspondem ?
                         if (textBox3.Text == textBox4.Text)
                         {
-                            // Faz uma verificação de email simples (é necessário ter pelo menos um '@' e um '.com' no email)
+                            // Email correto ?
                             if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
                             {
-                                // Faz a criptografia da senha em MD5
+                                // Criptografia da senha
                                 vSenhaMD5 = MD5.criptografar(textBox3.Text);
 
-                                // Faz o cadastro do usuário no "BD" de usuários
+                                // Cadastro do usuário no "BD" de usuários
                                 usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, vSenhaMD5, Convert.ToDateTime(maskedTextBox1.Text), true);
                                 bd.setUsuario(usuario);
 

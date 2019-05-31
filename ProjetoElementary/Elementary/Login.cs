@@ -49,15 +49,15 @@ namespace Elementary
         // Botão entrar
         private void button1_Click(object sender, EventArgs e)
         {
-            // Verifica se os campos não estão vazios
+            // Campos vazios ?
             if (textBox1.Text != "Email" && textBox2.Text != "Senha")
             {
-                // Verifica se existe o usuário informado
+                // Já existe usuário ?
                 if (bd.getUsuario(textBox1.Text) != null)
                 {
                     usuario = (Usuario)bd.getUsuario(textBox1.Text);
 
-                    // Verifica se a conta NÃO foi excluída
+                    // Conta excluída ?
                     if (usuario.getStatusConta() == true)
                     {
                         // Criptografa a senha para comparar com a que está no "BD"
@@ -77,7 +77,7 @@ namespace Elementary
                     }
                     else
                     {
-                        // Diálogo para reativar a conta
+                        // Reativar conta ?
                         DialogResult ativarConta = MessageBox.Show("Sua conta foi desativada desejá ativa-lá novamente?", "AVISO", MessageBoxButtons.YesNo);
 
                         if(ativarConta == DialogResult.Yes)
@@ -113,7 +113,7 @@ namespace Elementary
                     }
                     else
                     {
-                        // Diálogo de confirmação para reativar a conta
+                        // Reativar conta ?
                         DialogResult ativarConta = MessageBox.Show("Sua conta foi desativada desejá ativa-lá novamente?", "AVISO", MessageBoxButtons.YesNo);
 
                         if (ativarConta == DialogResult.Yes)
