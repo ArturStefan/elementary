@@ -354,6 +354,7 @@
             this.textBox6.TabIndex = 0;
             this.textBox6.Text = "Pesquisar";
             this.textBox6.Enter += new System.EventHandler(this.textBox6_Enter);
+            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
             this.textBox6.Leave += new System.EventHandler(this.textBox6_Leave);
             // 
             // button4

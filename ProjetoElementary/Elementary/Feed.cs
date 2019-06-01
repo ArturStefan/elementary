@@ -26,12 +26,18 @@ namespace Elementary
         public Feed(BD pBd, Medico pMedico)
         {
             InitializeComponent();
-
             ActiveControl = pictureBox1;
+
+            panel7.HorizontalScroll.Maximum = 0;
+            panel7.AutoScroll = false;
+            panel7.VerticalScroll.Visible = false;
+            panel7.AutoScroll = true;
 
             bd = (BD)pBd;
             medico = (Medico)pMedico;
             textBox1.Text = medico.getNome();
+
+            novoGrupo();
 
             // Configurações das opções (engrenagem)
             ActiveControl = pictureBox1;
@@ -47,24 +53,19 @@ namespace Elementary
         {
             InitializeComponent();
 
+            panel7.HorizontalScroll.Maximum = 0;
+            panel7.AutoScroll = false;
+            panel7.VerticalScroll.Visible = false;
+            panel7.AutoScroll = true;
+
             bd = pBD;
             medico = pMedico;
             grupo = pGrupo;
 
-            // Design + deixar o grupo visível
-            int x = (panel7.Width / 2) - 115; // Menos a metade do tamanho do controle (textbox)
-            int y = 0;
+            // Adicionar o grupo nas informações do médico
+            medico.addGrupo(grupo.getNome());
 
-            TextBox addNovoGrupo = new TextBox();
-            addNovoGrupo.Text = grupo.getNome();
-            addNovoGrupo.Font = new Font("Baloo Bhaijaan", 12);
-            addNovoGrupo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            addNovoGrupo.TextAlign = HorizontalAlignment.Left;
-            addNovoGrupo.Width = 230;
-            addNovoGrupo.ReadOnly = true;
-            addNovoGrupo.BackColor = Color.YellowGreen;
-            addNovoGrupo.Location = new Point(x, y += 10);
-            panel7.Controls.Add(addNovoGrupo);
+            novoGrupo();
 
             // Configurações das opções (engrenagem)
             ActiveControl = pictureBox1;
@@ -169,6 +170,67 @@ namespace Elementary
             novoPost.ShowDialog();
         }
 
+        // Método de pesquisa de grupos
+        private void pesquisarGrupos()
+        {
+            TextBox addNovoGrupo = new TextBox();
+
+            grupo = (Grupo)bd.getGrupo(textBox6.Text);
+
+            if(grupo == null)
+            {
+                MessageBox.Show("Este grupo não existe");
+            }
+            else
+            {
+                // Abrir um novo form com os dados do grupo
+                MessageBox.Show("Este grupo existe");
+            }
+        }
+
+        // Método para exibir os grupos criados
+        private void novoGrupo()
+        {
+            ArrayList listaDeGrupos = new ArrayList();
+
+            int x = (panel7.Width / 2) - 115; // Menos a metade do tamanho do controle (textbox)
+            int y = 0;
+
+            for (int i = medico.numeroGrupos() - 1; i >= 0; i--)
+            {
+                listaDeGrupos = medico.getGrupos();
+
+                // Design dos grupos
+                Button addNovoGrupo = new Button();
+                addNovoGrupo.Click += new EventHandler(addNovoGrupo_Click);
+                // Tratar 'X' do form criar grupo
+                addNovoGrupo.Text = listaDeGrupos[i].ToString();
+                addNovoGrupo.AutoSize = true;
+                addNovoGrupo.FlatStyle = FlatStyle.Flat;
+                addNovoGrupo.FlatAppearance.BorderSize = 0;
+                addNovoGrupo.Font = new Font("Baloo Bhaijaan", 12);
+                addNovoGrupo.BackColor = Color.YellowGreen;
+
+                if(y == 0)
+                {
+                    addNovoGrupo.Location = new Point(x, y += 2);
+                }
+                else
+                {
+                    addNovoGrupo.Location = new Point(x, y += 40);
+                }
+
+                panel7.Controls.Add(addNovoGrupo);
+
+                void addNovoGrupo_Click(Object sender, EventArgs e)
+                {
+                    Chat chat = new Chat((Grupo)bd.getGrupo(addNovoGrupo.Text));
+                    this.Dispose();
+                    chat.ShowDialog();
+                }
+            }
+        }
+
         // Método para exibir os posts feitos
         private void novoPost()
         {
@@ -241,6 +303,23 @@ namespace Elementary
             }
         }
 
+        // Botão "Novo Grupo"
+        private void button9_Click(object sender, EventArgs e)
+        {
+            CriarGrupo novoGrupo = new CriarGrupo(bd, medico);
+            this.Dispose();
+            novoGrupo.ShowDialog();
+        }
+
+        // Pesquisar grupos
+        private void textBox6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                pesquisarGrupos();
+            }
+        }
+
         // Botão sair
         private void button5_Click(object sender, EventArgs e)
         {
@@ -279,14 +358,6 @@ namespace Elementary
             {
                 MessageBox.Show("Usuario inexistente");
             }
-        }
-
-        // Botão "Novo Grupo"
-        private void button9_Click(object sender, EventArgs e)
-        {
-            CriarGrupo novoGrupo = new CriarGrupo(bd, medico);
-            this.Dispose();
-            novoGrupo.ShowDialog();
         }
     }
 } 

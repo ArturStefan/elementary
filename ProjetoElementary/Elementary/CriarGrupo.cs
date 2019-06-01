@@ -16,6 +16,7 @@ namespace Elementary
         Grupo grupo = new Grupo();
         BD bd = new BD();
         Medico medico = new Medico();
+        Usuario usuario = new Usuario();
 
         public CriarGrupo(BD pBD, Medico pMedico)
         {
@@ -36,7 +37,10 @@ namespace Elementary
             else
             {
                 grupo.setNome(textBox1.Text);
+                grupo.setParticipante(medico);
                 MessageBox.Show("Grupo criado com Sucesso");
+                bd.setGrupo(grupo);
+
                 Feed feed = new Feed(bd, medico, grupo);
                 this.Dispose();
                 feed.ShowDialog();

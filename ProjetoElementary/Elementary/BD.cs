@@ -11,7 +11,7 @@ namespace Elementary
         // Instância de classe
         Dictionary<string, object> listaDeUsuarios = new Dictionary<string, object>();
         Dictionary<string, object> listaDeMedicos = new Dictionary<string, object>();
-        Dictionary<string, object> grupo = new Dictionary<string, object>();
+        Dictionary<string, object> grupos = new Dictionary<string, object>();
 
 
         public BD()
@@ -43,8 +43,18 @@ namespace Elementary
             listaDeUsuarios.Add(pUsuario.getEmail(), pUsuario);
         }
 
-        public void setGrupo(Grupo pGrupo) {
-            grupo.Add(pGrupo.getNome(), pGrupo);
+        public void setGrupo(Grupo pGrupo)
+        {
+            grupos.Add(pGrupo.getNome(), pGrupo);
+        }
+
+        public object getGrupo(string pNomeGrupo)
+        {
+            if (grupos.ContainsKey(pNomeGrupo))
+            {
+                return grupos[pNomeGrupo];
+            }
+            return null;
         }
 
         public object getUsuario(string pUsuario)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Elementary
     {
         // Atributos
         private string vCRM;
+        private ArrayList Grupos = new ArrayList();
 
         // Métodos
         public Medico()
@@ -47,7 +49,26 @@ namespace Elementary
             setStatusConta(pStatusConta);
             setCRM(pCRM);
         }
-    }
 
+        public void addGrupo(string pNomegrupo)
+        {
+            Grupos.Add(pNomegrupo);
+        }
+
+        public ArrayList getGrupos()
+        {
+            return Grupos;
+        }
+
+        public int numeroGrupos()
+        {
+            if (Grupos.Count != 0)
+            {
+                return Grupos.Count;
+            }
+
+            return -1;
+        }
+    }
 }
 

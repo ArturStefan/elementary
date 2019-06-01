@@ -146,3 +146,4 @@ D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Posts.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.RestaurarSenha.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.FeedAmigos.resources
+D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Chat.resources

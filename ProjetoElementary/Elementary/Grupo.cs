@@ -30,7 +30,8 @@ namespace Elementary
             vMensagens.Add(pMensagem);
         }
 
-        public void setParticipante(object pUsuario) {
+        public void setParticipante(object pUsuario)
+        {
             vParticipantes.Add(pUsuario);
         }
     }
