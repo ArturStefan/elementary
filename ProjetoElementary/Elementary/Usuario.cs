@@ -25,15 +25,6 @@ namespace Elementary
         {
 
         }
-        
-        public Usuario(string pNome, string pEmail, string pSenha, DateTime pDataNascimento, bool pStatusConta)
-        {
-            vNome = pNome;
-            vEmail = pEmail;
-            vSenha = pSenha;
-            vDataNascimento = pDataNascimento;
-            vStatusConta = pStatusConta;
-        }
 
         public void setNome(string pNome)
         {

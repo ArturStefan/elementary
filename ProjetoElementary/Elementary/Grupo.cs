@@ -25,7 +25,7 @@ namespace Elementary
             vNome = pNome;
         }
 
-        public void setMensagem(string pMensagem)
+        public void setMensagem(Mensagem pMensagem)
         {
             vMensagens.Add(pMensagem);
         }

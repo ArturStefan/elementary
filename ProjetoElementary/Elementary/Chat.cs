@@ -58,7 +58,20 @@ namespace Elementary
         {
             if(textBox1.Text != "")
             {
-                grupo.setMensagem(textBox1.Text);
+                Mensagem mensagem = new Mensagem();
+
+                if (usuario.getEmail() != null)
+                {
+                    mensagem.setConteudo(textBox1.Text);
+                    mensagem.setUsuario(usuario);
+                }
+                else
+                {
+                    mensagem.setConteudo(textBox1.Text);
+                    mensagem.setMedico(medico);
+                }
+
+                grupo.setMensagem(mensagem);
                 exibirMensagens();
             }
         }
@@ -70,7 +83,20 @@ namespace Elementary
             {
                 if (textBox1.Text != "")
                 {
-                    grupo.setMensagem(textBox1.Text);
+                    Mensagem mensagem = new Mensagem();
+
+                    if (usuario.getEmail() != null)
+                    {
+                        mensagem.setConteudo(textBox1.Text);
+                        mensagem.setUsuario(usuario);
+                    }
+                    else
+                    {
+                        mensagem.setConteudo(textBox1.Text);
+                        mensagem.setMedico(medico);
+                    }
+
+                    grupo.setMensagem(mensagem);
                     exibirMensagens();
                 }
             }
@@ -80,39 +106,120 @@ namespace Elementary
         private void exibirMensagens()
         {
             ArrayList listaDeMensagens = new ArrayList();
-
+            listaDeMensagens = grupo.getMensagem();
             panel2.Controls.Clear();
 
-            int x = (panel2.Width / 2) - 125;
             int y = 10;
 
             for (int i = 0; i <= grupo.numeroMensagem() - 1; i++)
             {
-                RichTextBox mensagem = new RichTextBox();
-                listaDeMensagens = grupo.getMensagem();
+                RichTextBox conteudo = new RichTextBox();
+                Mensagem tmpMensagem = new Mensagem();
+                tmpMensagem = (Mensagem)listaDeMensagens[i];
+                conteudo.Text = tmpMensagem.getConteudo();
+                Usuario usuarioMensagem = (Usuario)tmpMensagem.getUsuario();
 
                 // Design mensagens
-                mensagem.Font = new Font("Baloo Bhaijaan", 12);
-                mensagem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                mensagem.BackColor = Color.LightGray;
-                mensagem.SelectionAlignment = HorizontalAlignment.Center;
-                mensagem.Width = 250;
-                mensagem.Height = (int)(3 * mensagem.Font.Height) + mensagem.GetLineFromCharIndex(mensagem.Text.Length + 1) * mensagem.Font.Height + 1 + mensagem.Margin.Vertical;
-                mensagem.SelectionStart = 0;
-                mensagem.SelectionStart = mensagem.Text.Length;
-                mensagem.ReadOnly = true;
-                mensagem.Text = listaDeMensagens[i].ToString();
+                conteudo.Font = new Font("Baloo Bhaijaan", 12);
+                conteudo.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-                if (y == 10)
+                // Cores do chat
+                // É médico ?
+                if (usuarioMensagem.getIdentificador() == "medico")
                 {
-                    mensagem.Location = new Point(x, y += 20);
+                    // É o médio logado ? 
+                    if (usuarioMensagem.getEmail() == medico.getEmail())
+                    {
+                        conteudo.BackColor = Color.Silver;
+                    }
+                    else
+                    {
+                        conteudo.BackColor = Color.Turquoise;
+                    }
                 }
                 else
                 {
-                    mensagem.Location = new Point(x, y += 100);
+                    // É o usuário logado ?
+                    if (usuarioMensagem.getEmail() == usuario.getEmail())
+                    {
+                        conteudo.BackColor = Color.Silver;
+                    }
+                    else
+                    {
+                        conteudo.BackColor = Color.Orange;
+                    }
                 }
 
-                panel2.Controls.Add(mensagem);
+                conteudo.SelectionAlignment = HorizontalAlignment.Center;
+                conteudo.Width = 250;
+                conteudo.Height = (int)(3 * conteudo.Font.Height) + conteudo.GetLineFromCharIndex(conteudo.Text.Length + 1) * conteudo.Font.Height + 1 + conteudo.Margin.Vertical;
+                conteudo.SelectionStart = 0;
+                conteudo.SelectionStart = conteudo.Text.Length;
+                conteudo.ReadOnly = true;
+
+                // É médico ?
+                if (usuarioMensagem.getIdentificador() == "medico")
+                {
+                    // É o médio logado ? (layout DIREITA)
+                    if (usuarioMensagem.getEmail() == medico.getEmail())
+                    {
+                        int x = panel2.Width - 400;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 100);
+                        }
+                    }
+                    else
+                    {
+                        int x = (panel2.Width / 2) - 125;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 100);
+                        }
+                    }
+                }
+                else
+                {
+                    // É o usuário logado ? (layout DIREITA)
+                    if (usuarioMensagem.getEmail() == usuario.getEmail())
+                    {
+                        int x = panel2.Width - 400;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 100);
+                        }
+                    }
+                    else
+                    {
+                        int x = 150;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 100);
+                        }
+                    }
+                }
+
+                panel2.Controls.Add(conteudo);
                 textBox1.Clear();
             }
         }
@@ -165,10 +272,10 @@ namespace Elementary
             for (int i = 0; i <= grupo.numeroParticipante() - 1; i++)
             {
                 Button participante = new Button();
-                Usuario tmp = (Usuario)participantes[i];
+                Usuario tmpUsuario = (Usuario)participantes[i];
                 participante.Click += new EventHandler(participante_Click);
 
-                participante.Text = tmp.getNome();
+                participante.Text = tmpUsuario.getNome();
                 participante.AutoSize = true;
                 participante.FlatStyle = FlatStyle.Flat;
                 participante.TextAlign = ContentAlignment.MiddleLeft;

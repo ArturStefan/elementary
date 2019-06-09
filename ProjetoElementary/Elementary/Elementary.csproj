@@ -79,6 +79,7 @@
     <Compile Include="Feed.Designer.cs">
       <DependentUpon>Feed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensagem.cs" />
     <Compile Include="Posts.cs">
       <SubType>Form</SubType>
     </Compile>

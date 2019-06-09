@@ -19,17 +19,6 @@ namespace Elementary
 
         }
 
-        public Medico(string pNome, string pEmail, string pSenha, DateTime pDataNascimento, bool pStatusConta, string pCRM)
-        {
-            setNome(pNome);
-            setEmail(pEmail);
-            setSenha(pSenha);
-            setDataNascimento(pDataNascimento);
-            setStatusConta(pStatusConta);
-            setCRM(pCRM);
-            setIndentificador("medico");
-        }
-
         public void setCRM(string pCRM)
         {
             vCRM = pCRM;
@@ -48,27 +37,28 @@ namespace Elementary
             setDataNascimento(pDataNascimento);
             setStatusConta(pStatusConta);
             setCRM(pCRM);
+            setIndentificador("medico");
         }
 
-        public void addGrupo(string pNomegrupo)
-        {
-            Grupos.Add(pNomegrupo);
-        }
+        //public void addGrupo(string pNomegrupo)
+        //{
+        //    Grupos.Add(pNomegrupo);
+        //}
 
-        public ArrayList getGrupos()
-        {
-            return Grupos;
-        }
+        //public ArrayList getGrupos()
+        //{
+        //    return Grupos;
+        //}
 
-        public int numeroGrupos()
-        {
-            if (Grupos.Count != 0)
-            {
-                return Grupos.Count;
-            }
+        //public int numeroGrupos()
+        //{
+        //    if (Grupos.Count != 0)
+        //    {
+        //        return Grupos.Count;
+        //    }
 
-            return -1;
-        }
+        //    return -1;
+        //}
     }
 }
 
