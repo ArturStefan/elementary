@@ -16,6 +16,7 @@ namespace Elementary
         Post post = new Post();
         Usuario usuario = new Usuario();
         BD bd = new BD();
+        Medico medico = new Medico();
 
         public Posts()
         {
@@ -32,6 +33,16 @@ namespace Elementary
             bd = pBd;
         }
 
+        public Posts(BD pBd, Medico pMedico)
+        {
+            InitializeComponent();
+            ActiveControl = button1;
+
+            medico = pMedico;
+            bd = pBd;
+        }
+
+        // Botão publicar
         private void button1_Click(object sender, EventArgs e)
         {
             if(textBox1.Text == "Título" || richTextBox1.Text == "")
@@ -40,22 +51,44 @@ namespace Elementary
             }
             else
             {
-                post.setTitulo(textBox1.Text);
-                post.setTexto(richTextBox1.Text);
-                usuario.addPost(post);
+                if(usuario.getEmail() != null)
+                {
+                    post.setTitulo(textBox1.Text);
+                    post.setTexto(richTextBox1.Text);
+                    usuario.addPost(post);
 
-                this.Dispose();
-                Feed menu = new Feed(bd, usuario);
-                menu.ShowDialog();
+                    this.Dispose();
+                    Feed menu = new Feed(bd, usuario);
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    post.setTitulo(textBox1.Text);
+                    post.setTexto(richTextBox1.Text);
+                    medico.addPost(post);
+
+                    this.Dispose();
+                    Feed feed = new Feed(bd, medico);
+                    feed.ShowDialog();
+                }
             }
         }
 
         // Botão sair 'X'
         private void button4_Click(object sender, EventArgs e)
         {
-            Feed feed = new Feed(bd, usuario);
-            this.Dispose();
-            feed.ShowDialog();
+            if (usuario.getEmail() != null)
+            {
+                this.Dispose();
+                Feed menu = new Feed(bd, usuario);
+                menu.ShowDialog();
+            }
+            else
+            {
+                this.Dispose();
+                Feed feed = new Feed(bd, medico);
+                feed.ShowDialog();
+            }
         }
 
         // Efeitos da interface
@@ -73,6 +106,13 @@ namespace Elementary
             {
                 textBox1.Text = "Título";
             }
+        }
+
+        // Exibe informações de desenvolvimento
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Sobre sobre = new Sobre();
+            sobre.desenvolvedores();
         }
     }
 }

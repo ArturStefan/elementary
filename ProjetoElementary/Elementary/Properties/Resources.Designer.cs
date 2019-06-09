@@ -63,6 +63,16 @@ namespace Elementary.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circle_with_an_arrow_pointing_to_left {
+            get {
+                object obj = ResourceManager.GetObject("circle-with-an-arrow-pointing-to-left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_birthday_black {
             get {
                 object obj = ResourceManager.GetObject("icon-birthday-black", resourceCulture);
@@ -193,6 +203,16 @@ namespace Elementary.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_participants {
+            get {
+                object obj = ResourceManager.GetObject("icon-participants", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_pass_black {
             get {
                 object obj = ResourceManager.GetObject("icon-pass-black", resourceCulture);
@@ -246,6 +266,16 @@ namespace Elementary.Properties {
         internal static System.Drawing.Bitmap icon_username_white {
             get {
                 object obj = ResourceManager.GetObject("icon-username-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_arrow {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

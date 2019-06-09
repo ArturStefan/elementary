@@ -30,9 +30,39 @@ namespace Elementary
             vMensagens.Add(pMensagem);
         }
 
+        public ArrayList getMensagem()
+        {
+            return vMensagens;
+        }
+
+        public int numeroMensagem()
+        {
+            if (vMensagens.Count != 0)
+            {
+                return vMensagens.Count;
+            }
+
+            return -1;
+        }
+
         public void setParticipante(object pUsuario)
         {
             vParticipantes.Add(pUsuario);
+        }
+
+        public ArrayList getParticipante()
+        {
+            return vParticipantes;
+        }
+
+        public int numeroParticipante()
+        {
+            if (vParticipantes.Count != 0)
+            {
+                return vParticipantes.Count;
+            }
+
+            return -1;
         }
     }
 }

@@ -18,7 +18,8 @@ namespace Elementary
         private ArrayList Posts = new ArrayList();
         private ArrayList Amigos = new ArrayList();
         private string vIdentificador;
-       
+        private ArrayList Grupos = new ArrayList();
+
         // Métodos
         public Usuario()
         {
@@ -113,6 +114,26 @@ namespace Elementary
             if (Posts.Count != 0)
             {
                 return Posts.Count;
+            }
+
+            return -1;
+        }
+
+        public void addGrupo(string pNomegrupo)
+        {
+            Grupos.Add(pNomegrupo);
+        }
+
+        public ArrayList getGrupos()
+        {
+            return Grupos;
+        }
+
+        public int numeroGrupos()
+        {
+            if (Grupos.Count != 0)
+            {
+                return Grupos.Count;
             }
 
             return -1;

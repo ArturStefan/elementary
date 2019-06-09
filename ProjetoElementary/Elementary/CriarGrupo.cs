@@ -23,7 +23,7 @@ namespace Elementary
             InitializeComponent();
             ActiveControl = button1;
 
-            // Igualar "BDs" para não perder os dados
+            // Manter os dados
             bd = pBD;
             medico = pMedico;
         }
@@ -70,6 +70,13 @@ namespace Elementary
             {
                 textBox1.Text = "Nome do grupo";
             }
+        }
+
+        // Exibe informações de desenvolvimento
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Sobre sobre = new Sobre();
+            sobre.desenvolvedores();
         }
     }
 }

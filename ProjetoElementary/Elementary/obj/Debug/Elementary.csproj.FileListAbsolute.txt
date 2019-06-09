@@ -147,3 +147,20 @@ D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.RestaurarSenha.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.FeedAmigos.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Chat.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.Chat.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.CriarGrupo.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.Login.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.Cadastro.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.Feed.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.Posts.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.RestaurarSenha.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.FeedAmigos.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb

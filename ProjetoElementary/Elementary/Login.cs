@@ -28,19 +28,17 @@ namespace Elementary
           
         }
 
-        // Método construtor que recebe o "BD" com o novo usuário cadastrado
         public Login(BD pBD)
         {
             InitializeComponent();
 
-            // Iguala os "BDs"
+            // Manter os dados
             bd = (BD)pBD;
         }
 
         // Botão cadastrar 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Chama a tela de cadastro e passa o "BD" atual para a tela de cadastro para não perder os dados
             Cadastro cadastrar = new Cadastro(bd);
             this.Hide();
             cadastrar.ShowDialog();

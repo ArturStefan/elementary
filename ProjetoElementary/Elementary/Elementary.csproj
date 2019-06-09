@@ -207,5 +207,14 @@
   <ItemGroup>
     <None Include="Resources\icon-birthday-white.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-participants.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-with-an-arrow-pointing-to-left.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

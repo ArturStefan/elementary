@@ -25,8 +25,8 @@ namespace Elementary
         public RestaurarSenha(BD pBD)
         {
             InitializeComponent();
-
             ActiveControl = label1;
+
             bd = (BD)pBD;
 
             button1.Visible = false;

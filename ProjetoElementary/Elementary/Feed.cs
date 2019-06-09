@@ -22,65 +22,104 @@ namespace Elementary
         BD bd = new BD();
         Post post = new Post();
 
-        // Construtor para não perder os dados do médico
+        // Manter os dados do médico
         public Feed(BD pBd, Medico pMedico)
         {
             InitializeComponent();
             ActiveControl = pictureBox1;
 
-            panel7.HorizontalScroll.Maximum = 0;
-            panel7.AutoScroll = false;
-            panel7.VerticalScroll.Visible = false;
-            panel7.AutoScroll = true;
-
             bd = (BD)pBd;
             medico = (Medico)pMedico;
             textBox1.Text = medico.getNome();
 
-            novoGrupo();
-
             // Configurações das opções (engrenagem)
-            ActiveControl = pictureBox1;
+            button1.Visible = false;
+            button2.Visible = false;
             button4.Visible = false;
             button5.Visible = false;
             button6.Visible = false;
             button8.Visible = false;
             button9.Visible = true;
+
+            exibirGrupos();
+            novoPost();
         }
 
-        // Construtor para não perder os dados do grupo
+        // Manter os dados do grupo
         public Feed(BD pBD, Medico pMedico, Grupo pGrupo)
         {
             InitializeComponent();
-
-            panel7.HorizontalScroll.Maximum = 0;
-            panel7.AutoScroll = false;
-            panel7.VerticalScroll.Visible = false;
-            panel7.AutoScroll = true;
+            ActiveControl = pictureBox1;
 
             bd = pBD;
             medico = pMedico;
             grupo = pGrupo;
 
             // Adicionar o grupo nas informações do médico
-            medico.addGrupo(grupo.getNome());
-
-            novoGrupo();
+            if (grupo.getNome() != null)
+            {
+                medico.addGrupo(grupo.getNome());
+            }
 
             // Configurações das opções (engrenagem)
-            ActiveControl = pictureBox1;
+            button1.Visible = false;
+            button2.Visible = false;
             button4.Visible = false;
             button5.Visible = false;
             button6.Visible = false;
             button8.Visible = false;
             button9.Visible = true;
+
+            exibirGrupos();
+            novoPost();
         }
 
-        // Construtor para não perder os dados do usuário
+        // É médico e está voltando do chat ?
+        public Feed(BD pBD, Medico pMedico, Grupo pGrupo, Boolean pVoltandoDoChat)
+        {
+            InitializeComponent();
+            ActiveControl = pictureBox1;
+
+            bd = pBD;
+            medico = pMedico;
+            grupo = pGrupo;
+
+            // Configurações das opções (engrenagem)
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button8.Visible = false;
+            button9.Visible = true;
+
+            exibirGrupos();
+            novoPost();
+        }
+
+        public Feed(BD pBD, Usuario pUsuario, Grupo pGrupo)
+        {
+            InitializeComponent();
+            ActiveControl = pictureBox1;
+
+            bd = pBD;
+            usuario = pUsuario;
+            grupo = pGrupo;
+
+            textBox1.Text = "Anônimo";
+
+            // Configurações das opções (engrenagem)
+            button4.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button8.Visible = false;
+
+            novoPost();
+            exibirGrupos();
+        }
+
+        // Manter os dados do usuário
         public Feed(BD pBD, Usuario pUsuario)
         {
             InitializeComponent();
-
             ActiveControl = pictureBox1;
 
             bd = (BD)pBD;
@@ -89,7 +128,6 @@ namespace Elementary
             textBox1.Text = "Anônimo";
 
             // Configurações das opções (engrenagem)
-            ActiveControl = pictureBox1;
             button4.Visible = false;
             button5.Visible = false;
             button6.Visible = false;
@@ -125,7 +163,11 @@ namespace Elementary
         // Efeito do campo de pesquisa
         private void textBox6_Enter(object sender, EventArgs e)
         {
-            textBox6.Clear();
+            if (textBox6.Text == "Pesquisar")
+            {
+                textBox6.Clear();
+            }
+            
             textBox6.ForeColor = Color.White;
             panel4.BackColor = Color.White;
             pictureBox1.BackgroundImage = Properties.Resources.icon_magnifier_white;
@@ -133,14 +175,14 @@ namespace Elementary
 
         private void textBox6_Leave(object sender, EventArgs e)
         {
-            panel4.BackColor = Color.Black;
-            textBox6.ForeColor = Color.Black;
-            pictureBox1.BackgroundImage = Properties.Resources.icon_magnifier;
-
             if (textBox6.Text == "")
             {
                 textBox6.Text = "Pesquisar";
             }
+
+            panel4.BackColor = Color.Black;
+            textBox6.ForeColor = Color.Black;
+            pictureBox1.BackgroundImage = Properties.Resources.icon_magnifier;
         }
 
         // Exibir/esconder opções (engrenagem)
@@ -165,16 +207,25 @@ namespace Elementary
         // Botão para realizar um novo post
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            Posts novoPost = new Posts(bd, usuario);
-            novoPost.ShowDialog();
+            // É usuário ?
+            if(usuario.getEmail() != null)
+            {
+                this.Dispose();
+                Posts novoPost = new Posts(bd, usuario);
+                novoPost.ShowDialog();
+            }
+            else
+            {
+                this.Dispose();
+                Posts novoPost = new Posts(bd, medico);
+                novoPost.ShowDialog();
+            }
         }
 
         // Método de pesquisa de grupos
         private void pesquisarGrupos()
         {
             TextBox addNovoGrupo = new TextBox();
-
             grupo = (Grupo)bd.getGrupo(textBox6.Text);
 
             if(grupo == null)
@@ -183,50 +234,107 @@ namespace Elementary
             }
             else
             {
-                // Abrir um novo form com os dados do grupo
-                MessageBox.Show("Este grupo existe");
+                if (grupo.getNome() != null)
+                {
+                    if (usuario.getEmail() != null)
+                    {
+                        usuario.addGrupo(grupo.getNome());
+
+                        Chat chat = new Chat(bd, usuario, grupo);
+                        this.Dispose();
+                        chat.ShowDialog();
+                    }
+                    else
+                    {
+                        medico.addGrupo(grupo.getNome());
+
+                        Chat chat = new Chat(bd, medico, grupo);
+                        this.Dispose();
+                        chat.ShowDialog();
+                    }
+                }
             }
         }
 
         // Método para exibir os grupos criados
-        private void novoGrupo()
+        private void exibirGrupos()
         {
             ArrayList listaDeGrupos = new ArrayList();
 
             int x = (panel7.Width / 2) - 115; // Menos a metade do tamanho do controle (textbox)
             int y = 0;
 
-            for (int i = medico.numeroGrupos() - 1; i >= 0; i--)
+            // É usuário ?
+            if(usuario.getEmail() != null)
             {
-                listaDeGrupos = medico.getGrupos();
-
-                // Design dos grupos
-                Button addNovoGrupo = new Button();
-                addNovoGrupo.Click += new EventHandler(addNovoGrupo_Click);
-                // Tratar 'X' do form criar grupo
-                addNovoGrupo.Text = listaDeGrupos[i].ToString();
-                addNovoGrupo.AutoSize = true;
-                addNovoGrupo.FlatStyle = FlatStyle.Flat;
-                addNovoGrupo.FlatAppearance.BorderSize = 0;
-                addNovoGrupo.Font = new Font("Baloo Bhaijaan", 12);
-                addNovoGrupo.BackColor = Color.YellowGreen;
-
-                if(y == 0)
+                for (int i = usuario.numeroGrupos() - 1; i >= 0; i--)
                 {
-                    addNovoGrupo.Location = new Point(x, y += 2);
+                    listaDeGrupos = usuario.getGrupos();
+
+                    // Design dos grupos
+                    Button addNovoGrupo = new Button();
+                    addNovoGrupo.Click += new EventHandler(addNovoGrupo_Click);
+                    addNovoGrupo.Text = listaDeGrupos[i].ToString();
+                    addNovoGrupo.AutoSize = true;
+                    addNovoGrupo.FlatStyle = FlatStyle.Flat;
+                    addNovoGrupo.TextAlign = ContentAlignment.MiddleLeft;
+                    addNovoGrupo.FlatAppearance.BorderSize = 0;
+                    addNovoGrupo.Font = new Font("Baloo Bhaijaan", 12);
+                    addNovoGrupo.BackColor = Color.YellowGreen;
+
+                    if (y == 0)
+                    {
+                        addNovoGrupo.Location = new Point(x, y += 2);
+                    }
+                    else
+                    {
+                        addNovoGrupo.Location = new Point(x, y += 40);
+                    }
+
+                    panel7.Controls.Add(addNovoGrupo);
+
+                    void addNovoGrupo_Click(Object sender, EventArgs e)
+                    {
+                        Chat chat = new Chat(bd, usuario, (Grupo)bd.getGrupo(addNovoGrupo.Text));
+                        this.Dispose();
+                        chat.ShowDialog();
+                    }
                 }
-                else
+            }
+            else
+            {
+                for (int i = medico.numeroGrupos() - 1; i >= 0; i--)
                 {
-                    addNovoGrupo.Location = new Point(x, y += 40);
-                }
+                    listaDeGrupos = medico.getGrupos();
 
-                panel7.Controls.Add(addNovoGrupo);
+                    // Design dos grupos
+                    Button addNovoGrupo = new Button();
+                    addNovoGrupo.Click += new EventHandler(addNovoGrupo_Click);
+                    addNovoGrupo.Text = listaDeGrupos[i].ToString();
+                    addNovoGrupo.AutoSize = true;
+                    addNovoGrupo.FlatStyle = FlatStyle.Flat;
+                    addNovoGrupo.TextAlign = ContentAlignment.MiddleLeft;
+                    addNovoGrupo.FlatAppearance.BorderSize = 0;
+                    addNovoGrupo.Font = new Font("Baloo Bhaijaan", 12);
+                    addNovoGrupo.BackColor = Color.YellowGreen;
 
-                void addNovoGrupo_Click(Object sender, EventArgs e)
-                {
-                    Chat chat = new Chat((Grupo)bd.getGrupo(addNovoGrupo.Text));
-                    this.Dispose();
-                    chat.ShowDialog();
+                    if (y == 0)
+                    {
+                        addNovoGrupo.Location = new Point(x, y += 2);
+                    }
+                    else
+                    {
+                        addNovoGrupo.Location = new Point(x, y += 40);
+                    }
+
+                    panel7.Controls.Add(addNovoGrupo);
+
+                    void addNovoGrupo_Click(Object sender, EventArgs e)
+                    {
+                        Chat chat = new Chat(bd, medico, (Grupo)bd.getGrupo(addNovoGrupo.Text));
+                        this.Dispose();
+                        chat.ShowDialog();
+                    }
                 }
             }
         }
@@ -241,48 +349,98 @@ namespace Elementary
             int y = 0;
             int y2 = 0;
 
-            for (int i = usuario.numeroPost() - 1; i >= 0; i--)
+            // É usuário ?
+            if (usuario.getEmail() != null)
             {
-                TextBox tituloDoPost = new TextBox();
-                RichTextBox textoDoPost = new RichTextBox();
-
-                listaDePosts = usuario.getPost();
-                post = (Post)listaDePosts[i];
-
-                // Design dos posts
-                tituloDoPost.Font = new Font("Baloo Bhaijaan", 18);
-                tituloDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                tituloDoPost.TextAlign = HorizontalAlignment.Center;
-                tituloDoPost.Width = 480;
-                tituloDoPost.ReadOnly = true;
-
-                textoDoPost.Font = new Font("Baloo Bhaijaan", 12);
-                textoDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                textoDoPost.SelectionAlignment = HorizontalAlignment.Center;
-                textoDoPost.Width = 480;
-                textoDoPost.Height = (int)(3 * textoDoPost.Font.Height) + textoDoPost.GetLineFromCharIndex(textoDoPost.Text.Length + 1) * textoDoPost.Font.Height + 1 + textoDoPost.Margin.Vertical;
-                textoDoPost.SelectionStart = 0;
-                textoDoPost.SelectionStart = textoDoPost.Text.Length;
-                textoDoPost.ReadOnly = true;
-
-                tituloDoPost.Text = post.getTitulo();
-                textoDoPost.Text = post.getTexto();
-                
-                if(y == 0)
+                for (int i = usuario.numeroPost() - 1; i >= 0; i--)
                 {
-                    tituloDoPost.Location = new Point(x, y += 100);
-                }
-                else
-                {
-                    tituloDoPost.Location = new Point(x, y += 150);
-                }
-                
-                y2 = tituloDoPost.Location.Y;
-                textoDoPost.Location = new Point(x2, y2 += 50);
-                y = textoDoPost.Location.Y;
+                    TextBox tituloDoPost = new TextBox();
+                    RichTextBox textoDoPost = new RichTextBox();
 
-                panel6.Controls.Add(tituloDoPost);
-                panel6.Controls.Add(textoDoPost);
+                    listaDePosts = usuario.getPost();
+                    post = (Post)listaDePosts[i];
+
+                    // Design dos posts
+                    tituloDoPost.Font = new Font("Baloo Bhaijaan", 18);
+                    tituloDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                    tituloDoPost.TextAlign = HorizontalAlignment.Center;
+                    tituloDoPost.Width = 480;
+                    tituloDoPost.ReadOnly = true;
+
+                    textoDoPost.Font = new Font("Baloo Bhaijaan", 12);
+                    textoDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                    textoDoPost.SelectionAlignment = HorizontalAlignment.Center;
+                    textoDoPost.Width = 480;
+                    textoDoPost.Height = (int)(3 * textoDoPost.Font.Height) + textoDoPost.GetLineFromCharIndex(textoDoPost.Text.Length + 1) * textoDoPost.Font.Height + 1 + textoDoPost.Margin.Vertical;
+                    textoDoPost.SelectionStart = 0;
+                    textoDoPost.SelectionStart = textoDoPost.Text.Length;
+                    textoDoPost.ReadOnly = true;
+
+                    tituloDoPost.Text = post.getTitulo();
+                    textoDoPost.Text = post.getTexto();
+
+                    if (y == 0)
+                    {
+                        tituloDoPost.Location = new Point(x, y += 100);
+                    }
+                    else
+                    {
+                        tituloDoPost.Location = new Point(x, y += 150);
+                    }
+
+                    y2 = tituloDoPost.Location.Y;
+                    textoDoPost.Location = new Point(x2, y2 += 50);
+                    y = textoDoPost.Location.Y;
+
+                    panel6.Controls.Add(tituloDoPost);
+                    panel6.Controls.Add(textoDoPost);
+                }
+            }
+            else
+            {
+                for (int i = medico.numeroPost() - 1; i >= 0; i--)
+                {
+                    TextBox tituloDoPost = new TextBox();
+                    RichTextBox textoDoPost = new RichTextBox();
+
+                    listaDePosts = medico.getPost();
+                    post = (Post)listaDePosts[i];
+
+                    // Design dos posts
+                    tituloDoPost.Font = new Font("Baloo Bhaijaan", 18);
+                    tituloDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                    tituloDoPost.TextAlign = HorizontalAlignment.Center;
+                    tituloDoPost.Width = 480;
+                    tituloDoPost.ReadOnly = true;
+
+                    textoDoPost.Font = new Font("Baloo Bhaijaan", 12);
+                    textoDoPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                    textoDoPost.SelectionAlignment = HorizontalAlignment.Center;
+                    textoDoPost.Width = 480;
+                    textoDoPost.Height = (int)(3 * textoDoPost.Font.Height) + textoDoPost.GetLineFromCharIndex(textoDoPost.Text.Length + 1) * textoDoPost.Font.Height + 1 + textoDoPost.Margin.Vertical;
+                    textoDoPost.SelectionStart = 0;
+                    textoDoPost.SelectionStart = textoDoPost.Text.Length;
+                    textoDoPost.ReadOnly = true;
+
+                    tituloDoPost.Text = post.getTitulo();
+                    textoDoPost.Text = post.getTexto();
+
+                    if (y == 0)
+                    {
+                        tituloDoPost.Location = new Point(x, y += 100);
+                    }
+                    else
+                    {
+                        tituloDoPost.Location = new Point(x, y += 150);
+                    }
+
+                    y2 = tituloDoPost.Location.Y;
+                    textoDoPost.Location = new Point(x2, y2 += 50);
+                    y = textoDoPost.Location.Y;
+
+                    panel6.Controls.Add(tituloDoPost);
+                    panel6.Controls.Add(textoDoPost);
+                }
             }
         }
 
