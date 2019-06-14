@@ -43,41 +43,51 @@ namespace Elementary
                 // TODOS os campos preenchidos ? 
                 if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && textBox5.Text != "CRM" && maskedTextBox1.Text != "  /  /")
                 {
-                    // Médico já está cadastrado ?
-                    if (bd.getMedico(textBox2.Text) == null)
+                    // Data válida ?
+                    try
                     {
-                        // Senhas correspondem ?
-                        if (textBox3.Text == textBox4.Text)
+                        DateTime data = Convert.ToDateTime(maskedTextBox1.Text);
+
+                        // Médico já está cadastrado ?
+                        if (bd.getMedico(textBox2.Text) == null)
                         {
-                            // Email correto ?
-                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                            // Senhas correspondem ?
+                            if (textBox3.Text == textBox4.Text)
                             {
-                                // Criptografia da senha
-                                vSenhaMD5 = MD5.criptografar(textBox3.Text);
+                                // Email correto ?
+                                if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                                {
+                                    // Criptografia da senha
+                                    vSenhaMD5 = MD5.criptografar(textBox3.Text);
 
-                                // Cadastro do médico no "BD" de médicos
-                                medico.cadastrarMedico(textBox1.Text, textBox2.Text, vSenhaMD5, textBox5.Text, Convert.ToDateTime(maskedTextBox1.Text), true);
-                                bd.setMedico(medico);
+                                    // Cadastro do médico no "BD" de médicos
+                                    medico.cadastrarMedico(textBox1.Text, textBox2.Text, vSenhaMD5, textBox5.Text, data, true);
+                                    bd.setMedico(medico);
 
-                                MessageBox.Show("Cadastro realizado com sucesso");
+                                    MessageBox.Show("Cadastro realizado com sucesso");
 
-                                this.Dispose();
-                                Login login = new Login(bd);
-                                login.ShowDialog();
+                                    this.Dispose();
+                                    Login login = new Login(bd);
+                                    login.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Email inválido");
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Email inválido");
+                                MessageBox.Show("As senhas não são iguais");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("As senhas não são iguais");
+                            MessageBox.Show("Este usuário já está cadastrado");
                         }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("Este usuário já está cadastrado");
+                        MessageBox.Show("Data inválida");
                     }
                 }
                 else
@@ -90,41 +100,51 @@ namespace Elementary
                 // TODOS os campos preenchidos ?
                 if (textBox1.Text != "Nome completo" && textBox2.Text != "Email" && textBox3.Text != "Senha" && textBox4.Text != "Confirmar senha" && maskedTextBox1.Text != "  /  /")
                 {
-                    // Usuário cadastrado ?
-                    if (bd.getUsuario(textBox2.Text) == null)
+                    // Data válida ?
+                    try
                     {
-                        // Senhas correspondem ?
-                        if (textBox3.Text == textBox4.Text)
+                        DateTime data = Convert.ToDateTime(maskedTextBox1.Text);
+
+                        // Usuário cadastrado ?
+                        if (bd.getUsuario(textBox2.Text) == null)
                         {
-                            // Email correto ?
-                            if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                            // Senhas correspondem ?
+                            if (textBox3.Text == textBox4.Text)
                             {
-                                // Criptografia da senha
-                                vSenhaMD5 = MD5.criptografar(textBox3.Text);
+                                // Email correto ?
+                                if (textBox2.Text.IndexOf("@") != -1 && textBox2.Text.IndexOf(".com") != -1)
+                                {
+                                    // Criptografia da senha
+                                    vSenhaMD5 = MD5.criptografar(textBox3.Text);
 
-                                // Cadastro do usuário no "BD" de usuários
-                                usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, vSenhaMD5, Convert.ToDateTime(maskedTextBox1.Text), true);
-                                bd.setUsuario(usuario);
+                                    // Cadastro do usuário no "BD" de usuários
+                                    usuario.cadastrarUsuario(textBox1.Text, textBox2.Text, vSenhaMD5, data, true);
+                                    bd.setUsuario(usuario);
 
-                                MessageBox.Show("Cadastro realizado com sucesso");
+                                    MessageBox.Show("Cadastro realizado com sucesso");
 
-                                this.Dispose();
-                                Login login = new Login(bd);
-                                login.ShowDialog();
+                                    this.Dispose();
+                                    Login login = new Login(bd);
+                                    login.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Email inválido");
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Email inválido");
+                                MessageBox.Show("As senhas não são iguais");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("As senhas não são iguais");
+                            MessageBox.Show("Este usuário já está cadastrado");
                         }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("Este usuário já está cadastrado");
+                        MessageBox.Show("Data inválida");
                     }
                 }
                 else

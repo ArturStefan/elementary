@@ -18,6 +18,8 @@ namespace Elementary
         Usuario usuario = new Usuario();
         Medico medico = new Medico();
         BD bd = new BD();
+        Usuario amigo = new Usuario();
+        ChatIndividual chat = new ChatIndividual();
 
         public Chat(BD pBD, Medico pMedico, Grupo pGrupo)
         {
@@ -48,9 +50,57 @@ namespace Elementary
             usuario = pUsuario;
             bd = pBD;
 
-            grupo.setParticipante(pUsuario);
+            // Já está no grupo ?
+            if (grupo.getParticipante().Contains(pUsuario) == false)
+            {
+                grupo.setParticipante(pUsuario);
+            }
 
             exibirMensagens();
+        }
+
+        // Chat individual
+        public Chat(BD pBD, object pUsuario, object pAmigo, object pChat)
+        {
+            InitializeComponent();
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+
+            // Manter os dados
+            grupo = null;
+            bd = pBD;
+
+            // Logado é usuário ?
+            if(pUsuario.GetType() == usuario.GetType())
+            {
+                usuario = (Usuario)pUsuario;
+            }
+            else
+            {
+                medico = (Medico)pUsuario;
+            }
+
+            // Logado é usuário ?
+            if (pAmigo.GetType() == usuario.GetType())
+            {
+                amigo = (Usuario)pAmigo;
+            }
+            else
+            {
+                amigo = (Medico)pAmigo;
+            }
+
+            chat = (ChatIndividual)pChat;
+
+            // É chat individual ?
+            if (chat != null)
+            {
+                exibirMensagemIndividual();
+            }
+            else
+            {
+                chat = new ChatIndividual();
+            }
         }
 
         // Botão enviar
@@ -71,8 +121,26 @@ namespace Elementary
                     mensagem.setMedico(medico);
                 }
 
-                grupo.setMensagem(mensagem);
-                exibirMensagens();
+                // É chat individual ?
+                if (grupo == null)
+                {
+                    chat.setMensagem(mensagem);
+                    chat.setUsuario(usuario);
+
+                    // Já existe um chat ?
+                    if (usuario.getMensagem(amigo.getNome()) == null)
+                    {
+                        usuario.addMensagem(amigo.getNome(), chat);
+                        amigo.addMensagem(usuario.getNome(), chat);
+                    }
+
+                    exibirMensagemIndividual();
+                }
+                else
+                {
+                    grupo.setMensagem(mensagem);
+                    exibirMensagens();
+                }
             }
         }
 
@@ -96,8 +164,42 @@ namespace Elementary
                         mensagem.setMedico(medico);
                     }
 
-                    grupo.setMensagem(mensagem);
-                    exibirMensagens();
+                    // É chat individual ?
+                    if(grupo == null)
+                    {
+                        chat.setMensagem(mensagem);
+
+                        // É usuário ?
+                        if (usuario.getEmail() != null)
+                        {
+                            chat.setUsuario(usuario);
+
+                            // Já existe um chat ?
+                            if (usuario.getMensagem(amigo.getNome()) == null)
+                            {
+                                usuario.addMensagem(amigo.getNome(), chat);
+                                amigo.addMensagem(usuario.getNome(), chat);
+                            }
+                        }
+                        else
+                        {
+                            chat.setUsuario(medico);
+
+                            // Já existe um chat ?
+                            if (medico.getMensagem(amigo.getNome()) == null)
+                            {
+                                medico.addMensagem(amigo.getNome(), chat);
+                                amigo.addMensagem(medico.getNome(), chat);
+                            }
+                        }
+
+                        exibirMensagemIndividual();
+                    }
+                    else
+                    {
+                        grupo.setMensagem(mensagem);
+                        exibirMensagens();
+                    }
                 }
             }
         }
@@ -116,8 +218,8 @@ namespace Elementary
                 RichTextBox conteudo = new RichTextBox();
                 Mensagem tmpMensagem = new Mensagem();
                 tmpMensagem = (Mensagem)listaDeMensagens[i];
-                conteudo.Text = tmpMensagem.getConteudo();
                 Usuario usuarioMensagem = (Usuario)tmpMensagem.getUsuario();
+                conteudo.Text = usuarioMensagem.getNome() + "\n" + tmpMensagem.getConteudo();
 
                 // Design mensagens
                 conteudo.Font = new Font("Baloo Bhaijaan", 12);
@@ -146,7 +248,7 @@ namespace Elementary
                     }
                     else
                     {
-                        conteudo.BackColor = Color.Orange;
+                        conteudo.BackColor = Color.DarkGray;
                     }
                 }
 
@@ -171,7 +273,7 @@ namespace Elementary
                         }
                         else
                         {
-                            conteudo.Location = new Point(x, y += 100);
+                            conteudo.Location = new Point(x, y += 120);
                         }
                     }
                     else
@@ -184,7 +286,7 @@ namespace Elementary
                         }
                         else
                         {
-                            conteudo.Location = new Point(x, y += 100);
+                            conteudo.Location = new Point(x, y += 120);
                         }
                     }
                 }
@@ -215,6 +317,137 @@ namespace Elementary
                         else
                         {
                             conteudo.Location = new Point(x, y += 100);
+                        }
+                    }
+                }
+
+                panel2.Controls.Add(conteudo);
+                textBox1.Clear();
+            }
+        }
+
+        // Método para exibir as mensagens individuais
+        private void exibirMensagemIndividual()
+        {
+            ChatIndividual tmpChat = new ChatIndividual();
+
+            if (usuario.getMensagem(amigo.getNome()) != null)
+            {
+                tmpChat = (ChatIndividual)usuario.getMensagem(amigo.getNome());
+            }
+            else
+            {
+                tmpChat = (ChatIndividual)medico.getMensagem(amigo.getNome());
+            }
+            
+            panel2.Controls.Clear();
+
+            int y = 10;
+
+            foreach (Mensagem mensagem in tmpChat.getMensagem())
+            {
+                RichTextBox conteudo = new RichTextBox();
+                Mensagem tmpMensagem = new Mensagem();
+                tmpMensagem = (Mensagem)mensagem;
+                Usuario usuarioMensagem = (Usuario)tmpMensagem.getUsuario();
+                conteudo.Text = usuarioMensagem.getNome() + "\n" + tmpMensagem.getConteudo();
+
+                // Design mensagens
+                conteudo.Font = new Font("Baloo Bhaijaan", 12);
+                conteudo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+                // Cores do chat
+                // É médico ?
+                if (usuarioMensagem.getIdentificador() == "medico")
+                {
+                    // É o médio logado ? 
+                    if (usuarioMensagem.getEmail() == medico.getEmail())
+                    {
+                        conteudo.BackColor = Color.Silver;
+                    }
+                    else
+                    {
+                        conteudo.BackColor = Color.Turquoise;
+                    }
+                }
+                else
+                {
+                    // É o usuário logado ?
+                    if (usuarioMensagem.getEmail() == usuario.getEmail())
+                    {
+                        conteudo.BackColor = Color.Silver;
+                    }
+                    else
+                    {
+                        conteudo.BackColor = Color.Turquoise;
+                    }
+                }
+
+                conteudo.SelectionAlignment = HorizontalAlignment.Center;
+                conteudo.Width = 250;
+                conteudo.Height = (int)(3 * conteudo.Font.Height) + conteudo.GetLineFromCharIndex(conteudo.Text.Length + 1) * conteudo.Font.Height + 1 + conteudo.Margin.Vertical;
+                conteudo.SelectionStart = 0;
+                conteudo.SelectionStart = conteudo.Text.Length;
+                conteudo.ReadOnly = true;
+
+                // É médico ?
+                if (usuarioMensagem.getIdentificador() == "medico")
+                {
+                    // É o médio logado ? (layout DIREITA)
+                    if (usuarioMensagem.getEmail() == medico.getEmail())
+                    {
+                        int x = panel2.Width - 400;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 120);
+                        }
+                    }
+                    else
+                    {
+                        int x = 150;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 120);
+                        }
+                    }
+                }
+                else
+                {
+                    // É o usuário logado ? (layout DIREITA)
+                    if (usuarioMensagem.getEmail() == usuario.getEmail())
+                    {
+                        int x = panel2.Width - 400;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 120);
+                        }
+                    }
+                    else
+                    {
+                        int x = 150;
+
+                        if (y == 10)
+                        {
+                            conteudo.Location = new Point(x, y += 20);
+                        }
+                        else
+                        {
+                            conteudo.Location = new Point(x, y += 120);
                         }
                     }
                 }
@@ -296,7 +529,52 @@ namespace Elementary
 
                 void participante_Click(Object sender, EventArgs e)
                 {
-                    // ARRUMAR --> add amigo ao clicar
+                    if(usuario.getEmail() != null)
+                    {
+                        amigo = (Usuario)bd.getUsuario(tmpUsuario.getEmail());
+
+                        if (amigo != null)
+                        {
+                            usuario.addAmigo(amigo);
+
+                            Chat chat = new Chat(bd, usuario, amigo, usuario.getMensagem(participante.Text));
+                            this.Dispose();
+                            chat.ShowDialog();
+                        }
+                        else
+                        {
+                            amigo = (Medico)bd.getMedico(tmpUsuario.getEmail());
+
+                            usuario.addAmigo(amigo);
+
+                            Chat chat = new Chat(bd, usuario, amigo, usuario.getMensagem(participante.Text));
+                            this.Dispose();
+                            chat.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        amigo = (Usuario)bd.getUsuario(tmpUsuario.getEmail());
+
+                        if (amigo != null)
+                        {
+                            medico.addAmigo(amigo);
+
+                            Chat chat = new Chat(bd, medico, amigo, medico.getMensagem(participante.Text));
+                            this.Dispose();
+                            chat.ShowDialog();
+                        }
+                        else
+                        {
+                            amigo = (Medico)bd.getMedico(tmpUsuario.getEmail());
+
+                            medico.addAmigo(amigo);
+
+                            Chat chat = new Chat(bd, medico, amigo, medico.getMensagem(participante.Text));
+                            this.Dispose();
+                            chat.ShowDialog();
+                        }
+                    }
                 }
             }
         }

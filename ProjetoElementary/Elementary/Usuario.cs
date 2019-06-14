@@ -19,6 +19,7 @@ namespace Elementary
         private ArrayList Amigos = new ArrayList();
         private string vIdentificador;
         private ArrayList Grupos = new ArrayList();
+        private Dictionary<string, object> Chat = new Dictionary<string, object>();
 
         // Métodos
         public Usuario()
@@ -135,14 +136,29 @@ namespace Elementary
             return Posts;
         }
 
-        public void addAmigo(string pEmailAmigo)
+        public void addAmigo(Usuario pAmigo)
         {
-            Amigos.Add(pEmailAmigo);
+            Amigos.Add(pAmigo);
         }
 
-        public void removeAmigo(string pEmailAmigo)
+        public void removerAmigo(Usuario pAmigo)
         {
-            Amigos.Remove(pEmailAmigo);
+            Amigos.Remove(pAmigo);
+        }
+
+        public void addMensagem(string pNome, ChatIndividual pChat)
+        {
+            Chat.Add(pNome, pChat);
+        }
+
+        public object getMensagem(string pNome)
+        {
+            if(Chat.ContainsKey(pNome))
+            {
+                return Chat[pNome];
+            }
+
+            return null;
         }
     }
 }

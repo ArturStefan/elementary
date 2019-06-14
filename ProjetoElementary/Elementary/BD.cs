@@ -13,7 +13,6 @@ namespace Elementary
         Dictionary<string, object> listaDeMedicos = new Dictionary<string, object>();
         Dictionary<string, object> grupos = new Dictionary<string, object>();
 
-
         public BD()
         {
             

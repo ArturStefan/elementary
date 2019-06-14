@@ -23,9 +23,6 @@ C:\Users\aluno\Desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.con
 C:\Users\aluno\Desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
 C:\Users\aluno\Desktop\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
 C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
-C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form1.resources
-C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form2.resources
-C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Form3.resources
 C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
 C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
 C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
@@ -145,7 +142,6 @@ D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Feed.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Posts.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.RestaurarSenha.resources
-D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.FeedAmigos.resources
 D:\DADOS (NAO APAGAR)\desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Chat.resources
 C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
 C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
@@ -164,3 +160,26 @@ C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\
 C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
 C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
 C:\Users\aluno\Desktop\elementary-master\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\bin\Debug\Elementary.exe.config
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\bin\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\bin\Debug\Elementary.pdb
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.csprojAssemblyReference.cache
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.Chat.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.CriarGrupo.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.Login.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.Cadastro.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.Feed.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.Posts.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.RestaurarSenha.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.Properties.Resources.resources
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.GenerateResource.cache
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.csproj.CoreCompileInputs.cache
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.exe
+D:\DADOS (NAO APAGAR)\videos\ProjetoElementary\Elementary\obj\Debug\Elementary.pdb
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Chat.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.CriarGrupo.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Login.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Cadastro.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Feed.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.Posts.resources
+C:\Users\aluno\Desktop\ProjetoElementary\Elementary\obj\Debug\Elementary.RestaurarSenha.resources

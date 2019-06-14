@@ -113,6 +113,7 @@ namespace Elementary
             button8.Visible = false;
 
             novoPost();
+            panel7.Controls.Clear();
             exibirGrupos();
         }
 
@@ -134,6 +135,8 @@ namespace Elementary
             button8.Visible = false;
 
             novoPost();
+            panel7.Controls.Clear();
+            exibirGrupos();
         }
 
         // Botão ON
@@ -491,31 +494,6 @@ namespace Elementary
         {
             Sobre sobre = new Sobre();
             sobre.desenvolvedores();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            string temp = textBox6.Text;
-
-            if (bd.getUsuario(temp) != null)
-            {
-                amigoUsuario = (Usuario)bd.getUsuario(temp);
-                FeedAmigos form6 = new FeedAmigos(bd, usuario, amigoUsuario);
-                this.Hide();
-                form6.ShowDialog();
-                MessageBox.Show("Usuario encontrado");
-            }
-
-            if (bd.getMedico(temp) != null)
-            {
-                amigoMedico = (Medico)bd.getMedico(temp);
-                usuario.addAmigo(amigoMedico.getEmail());
-                MessageBox.Show("Medico encontrado");
-            }
-            if (bd.getUsuario(temp) == null && bd.getMedico(temp) == null)
-            {
-                MessageBox.Show("Usuario inexistente");
-            }
         }
     }
 } 

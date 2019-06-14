@@ -53,6 +53,7 @@
     <Compile Include="Chat.Designer.cs">
       <DependentUpon>Chat.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChatIndividual.cs" />
     <Compile Include="CriarGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,12 +93,6 @@
     <Compile Include="RestaurarSenha.Designer.cs">
       <DependentUpon>RestaurarSenha.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeedAmigos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedAmigos.Designer.cs">
-      <DependentUpon>FeedAmigos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Medico.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
@@ -124,9 +119,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RestaurarSenha.resx">
       <DependentUpon>RestaurarSenha.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FeedAmigos.resx">
-      <DependentUpon>FeedAmigos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
