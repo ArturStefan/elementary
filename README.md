@@ -2,7 +2,7 @@
 
 ## Conteúdo
 
-- [O que é](#O-que-é-?)
+- [O que é](#O-que-é-)
 - [Desafios](#Desafios)
 - [Observações](#Observações)
 
