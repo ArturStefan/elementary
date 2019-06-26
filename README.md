@@ -20,7 +20,7 @@ A questão do anonimato é delimitada pelo usuário onde o próprio usuário dec
 
 ## Desafios
 
-* A aplicação NÃO pode ter banco de dados, tudo deve acontecer em memória
+* A aplicação **NÃO** pode ter banco de dados, tudo deve acontecer em memória
 * Aprender a trabalhar com o git
 * A aplicação deve ser desenvolvida em C#
 
