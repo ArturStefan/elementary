@@ -2,9 +2,8 @@
 
 ![](logo-elementary.png)
 
-Elementary
-
 </h1>
+
 
 ## Conteúdo
 
