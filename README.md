@@ -1,9 +1,14 @@
-# Elementary
+<h1 align="center">
+
+![](logo-elementary.png)
+
+</h1>
 
 ## Conteúdo
 
 - [O que é](#O-que-é-)
 - [Desafios](#Desafios)
+- [Requisitos](#Requisitos)
 - [Observações](#Observações)
 
 ## O que é ?
@@ -23,6 +28,10 @@ A questão do anonimato é delimitada pelo usuário onde o próprio usuário dec
 * A aplicação **NÃO** pode ter banco de dados, tudo deve acontecer em memória
 * Aprender a trabalhar com o git
 * A aplicação deve ser desenvolvida em C#
+
+## Requisitos
+
+* Necessita da fonte Baloo Bhaijaan
 
 ## Observações
 
