@@ -26,6 +26,6 @@ A questão do anonimato é delimitada pelo usuário onde o próprio usuário dec
 
 ## Observações
 
-Projeto construído como exigência para ser aprovado na matéria de estrura de dados
+Projeto construído como exigência para ser aprovado na matéria de estrutura de dados
 
 STATUS: NÃO finalizado
